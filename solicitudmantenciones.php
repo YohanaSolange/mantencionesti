@@ -48,8 +48,8 @@
              			  ?>
                   </select>
                   </div>
-<!-- txt Nombre Usuario-->
-<p class=text-center><label for="id usuario" >Tipo de Solicitud</p></label>
+<!-- txt id usuario mostrar NOMBRE usuario-->
+<p class=text-center><label for="" >Tipo de Solicitud</p></label>
            <?php
                   include_once("conexion.php");
 
@@ -60,7 +60,7 @@
                  
                    ?>
 
-<p class=text-center><select  id='tipo' name='tipo' ></p>
+<p class=text-center><select  id='tiposolicitud' name='tiposolicitud' ></p>
              
                   <?php 
                   $numregistrosTipo= mysql_num_rows($buscarTiporesultados);
@@ -72,6 +72,34 @@
                     $glosa_tipo = $fila['glosa'];
                     //<option value='0'>Sin Cliente</option>
                     echo "<option value='$id_tipo'> $glosa_tipo </option>";
+                    }
+                    ?>
+                  </select>
+                  </div>
+<!-- txt id equipo mantenciones mostrar GLOSA EQUIPO-->
+<p class=text-center><label for="" >Tipo de Equipo</p></label>
+           <?php
+                  include_once("conexion.php");
+
+                  $con2 = new DB;
+                  $strConsultaTipoequipo = "select * from tipo_equipo";
+                  $con2->conectar();
+                  $buscarTiporesultadosequipo = mysql_query($strConsultaTipoequipo);
+                 
+                   ?>
+
+<p class=text-center><select  id='tipoequipo' name='tipoequipo' ></p>
+             
+                  <?php 
+                  $numregistrosTipoequipo= mysql_num_rows($buscarTiporesultadosequipo);
+                   for ($i=0; $i<$numregistrosTipoequipo; $i++)
+                    {
+                 //variable asociativa FILA
+                    $fila = mysql_fetch_array($buscarTiporesultadosequipo);
+                    $id_tipoequipo = $fila['idtipo_equipo'];
+                    $glosa_tipoequipo = $fila['glosa'];
+                    //<option value='0'>Sin Cliente</option>
+                    echo "<option value='$id_tipoequipo'> $glosa_tipoequipo </option>";
                     }
                     ?>
                   </select>

@@ -9,12 +9,13 @@
      <thead>
   <tr>
     <th>ID SOLICITUD</th>
+    <th>COMENTARIO</th> 
     <th>FECHA</th>
+    <th>ESTADO</th>
     <th>NOMBRE DEL USUARIO</th>
- 	  <th>COMENTARIO</th> 
+    <th>TIPO DE SOLICITUD</th>
  	  <th>EMAIL</th>
- 	  <th>TIPO</th>
- 	  <th>ESTADO</th> 
+    <TH>TIPO DE EQUIPO</TH>
     </tr>
     </thead>
   <tbody>
@@ -22,7 +23,7 @@
               <?php 
                include_once("conexion.php");
               $con2 = new DB;
-              $strConsultaSolicitud = "SELECT * FROM `solicitud`";
+              $strConsultaSolicitud = "SELECT * FROM `solicitud` inner JOIN usuarios on solicitud.Usuarios_id=usuarios.idusuarios  inner JOIN tipo_solicitud on tipo_solicitud.idtipo_solicitud=solicitud.idtipo_solicitud inner join tipo_equipo on tipo_equipo.idtipo_equipo=solicitud.idtipo_equipo ";
               $con2->conectar();
               $buscarSolicitudresultados = mysql_query($strConsultaSolicitud);
               $numregistrosSolicitud= mysql_num_rows($buscarSolicitudresultados);
@@ -30,23 +31,28 @@
               {
               //variable asociativa FILA
               $fila = mysql_fetch_array($buscarSolicitudresultados);
-              $id_solicitud= $fila['idsolicitud'];
+              $idsolicitud=$fila['idsolicitud'];
+              $comentario=$fila['comentario'];
               $fecha=$fila['fecha'];
-              $nombre_usuarios= $fila['nombre'];
-              $usuarios_id= $fila['Usuarios_id'];
-              $comentario= $fila['comentario'];
-              $email= $fila['email'];
-              $tipo= $fila['idtipo_solicitud'];
-              $estado= $fila['estado'];
+              $estado=$fila['estado'];
+              $usuarios_id=$fila['Usuarios_id'];
+              $usuarios_nombre=$fila['nombre'];
+              $idtipo_solicitud=$fila['idtipo_solicitud'];
+              $solicitud_nombre=$fila['glosa_solicitud'];
+              $email=$fila['email'];
+              $idtipo_equipo=$fila['idtipo_equipo'];
+              $equipo_nombre=$fila['glosa_equipo'];
               echo "<tr>";
-              echo "<td>$$id_solicitud=</td>";
-              echo "<td>$nombre_usuarios</td>";
-              echo "<td><option value='$usuarios_id'>$nombre_usuarios</td>";
-              echo "<td>$comentario</td>";
-              echo "<td>$email</td>";
-              echo "<td>$tipo</td>";
-             echo "<td>$estado</td>"; 
-             // echo "<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-info' role='button' >Editar</button></td></td>";
+              echo"<td>$idsolicitud</td>";
+              echo"<td>$comentario</td>";
+              echo"<td>$fecha</td>";
+              echo"<td>$estado</td>";
+              echo"<td><option value='$usuarios_id'>$usuarios_nombre</option></td>";
+              echo"<td><option value='$idtipo_solicitud'>$solicitud_nombre</option></td>";
+              echo"<td>$email</td>";
+              echo"<td><option value='$idtipo_equipo'>$equipo_nombre</option></td>";
+              echo "</tr>";
+
              } ?>
 </tbody>    
 </table>

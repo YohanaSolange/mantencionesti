@@ -15,7 +15,6 @@
     <th>ID</th>
     <th>NOMBRE</th> 
     <th>EMAIL</th>
-    <th>CONTRASEÑA</th>
     <th>ESTADO</th>
     <th>EDITAR</th>
   </tr>
@@ -35,13 +34,11 @@
               $id_usuarios= $fila['idusuarios'];
               $nombre_usuarios= $fila['nombre'];
               $email_usuarios= $fila['email'];
-              $contrasena_usuarios= $fila['contrasena'];
               $estado_usuarios= $fila['estado'];
               echo "<tr>";
               echo "<td>$id_usuarios</td>";
               echo "<td>$nombre_usuarios</td>";
               echo "<td>$email_usuarios</td>";
-              echo "<td>$contrasena_usuarios</td>";
               echo "<td><option value='$estado_usuarios'>ACTIVO</option></td>";
               echo "<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-info' role='button' >Editar</button></td></td>";
              } ?>

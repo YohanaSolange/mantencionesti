@@ -8,14 +8,15 @@
 $email = $_POST['email'];
 $comentario = $_POST['comentario'];
 $idusuarios =$_POST['idusuarios'];
-$tipo=$_POST['tipo'];
+$tiposolicitud=$_POST['tiposolicitud'];
+$tipoequipo=$_POST['tipoequipo'];
 $fecha= date('Y-m-d H:i:s');
 
                
 $con = new DB;
     $con->conectar();
-    $strConsulta = "INSERT INTO `solicitud` (`idsolicitud`, `comentario`, `fecha`, `Usuarios_id`, `idtipo_solicitud`, `email`)
-    VALUES ('', '$comentario', '$fecha', '$idusuarios','$tipo', '$email')";
+    $strConsulta = "INSERT INTO `solicitud` (`idsolicitud`, `comentario`, `fecha`, `Usuarios_id`, `idtipo_solicitud`, `email`, `idtipo_equipo`)
+    VALUES ('', '$comentario', '$fecha', '$idusuarios','$tiposolicitud', '$email', '$tipoequipo')";
 
 
 $resultado1 = mysql_query($strConsulta);
