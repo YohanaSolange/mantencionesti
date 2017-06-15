@@ -1,54 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-
 
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
 
-<body>
-    <!-- Navigation -->
-<div class="container">
-    <div class="row">
-        <div class="span12">
-            <form class="form-horizontal" action='procesausuarios.php' method="POST">
-              <fieldset>
-                <div id="legend">
-                  <legend class="">Registrar Usuarios</legend>
+
+
+
+
+
+
+
+
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Listado de Usuarios
+        <small>advanced tables</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
+        <li><a href="listadousuarios.php">Listado Usuarios</a></li>
+      </ol>
+    </section>
+
+        <section class="content">
+<div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Quick Example</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action='procesausuarios.php' method="POST">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre</label>
+                  <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="" >
                 </div>
-                <div class="control-group">
-                  <!-- IP-->
-                  <label class="control-label"  for="nombre">Nombre</label>
-                  <div class="controls">
-                    <input type="text" id="nombre" name="nombre" placeholder="" class="input-xlarge">
-                  </div>
+
+
+
+                   <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control"  id="email" name="email" placeholder="" >
                 </div>
-                <div class="control-group">
-                  <!-- Fallas-->
-                  <label class="control-label" for="email">Email</label>
-                  <div class="controls">
-                    <input type="email" id="email" name="email" placeholder="" class="input-xlarge">
-                  </div>
-                </div>
-                   <!-- Correcciones-->
-                  <label class="control-label"  for="contrasena">Contraseña</label>
-                  <div class="controls">
-                    <input type="password" id="contrasena" name="contrasena" placeholder="" class="input-xlarge">
-                  </div>
-      
-                  <br>
-                  <div class="controls">
-                    <button  type="submit" class="btn btn-success" value="usuarios" name="usuarios">Aceptar</button>
-                  </div>
-           
-              </fieldset>
+
+
+                  
+
+                  
+
+
+
+              
+                
+               
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
             </form>
-        </div>
-    </div>
-   </div>
+</div>
 
 
+    
+    
+
+   </section>
+        <!-- /.col -->
+      </div>
    
 
-</body>
 
-</html>
+<!-- CAJA DE CONTENIDO CONDENIDO -->
+ 
+
+
+<!-- HASTA AQUI CONTENIDO -->
+
+ <?php include('footer.php');?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,15 +3,15 @@
  	function DB(){    
 $this->BaseDatos = "dbmantenciones";
 $this->Servidor = "localhost";
-$this->Usuario = "usermantenciones";
-$this->Clave = "12345";
+$this->Usuario = "root";
+$this->Clave = "";
 echo "".mysql_error();
 }
 function conectar() {
 //Defino la zona horaria para que sea la chilena
 date_default_timezone_set('America/Santiago');
 if(!($con=@mysql_connect($this->Servidor,$this->Usuario,$this->Clave))){
-echo"Error al conectar a la base de datos";
+echo"Error al conectar a la base de datos".mysql_error();;
 exit();
 }
 if (!@mysql_select_db($this->BaseDatos,$con)){

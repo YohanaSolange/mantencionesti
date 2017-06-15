@@ -1,16 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
+
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
-</head>
-<body>
-<caption><h3><center>Lista de Usuarios</center></h3></caption>
-  <table class="display"  id="tabla1" cellspacing="0" width="100%">
-     <thead>
+
+
+
+
+
+
+
+
+
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Listado de Usuarios
+        <small>advanced tables</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
+        <li><a href="listadousuarios.php">Listado Usuarios</a></li>
+       
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Hover Data Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="tabla1" class="table table-bordered table-hover">
+              <thead>
   <tr>
     <th>ID</th>
     <th>NOMBRE</th> 
@@ -43,6 +69,27 @@
               echo "<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-info' role='button' >Editar</button></td></td>";
              } ?>
 </tbody>    
-</table>
-</body>
-</html>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+
+<!-- CAJA DE CONTENIDO CONDENIDO -->
+ 
+
+
+<!-- HASTA AQUI CONTENIDO -->
+
+ <?php include('footer.php');?>

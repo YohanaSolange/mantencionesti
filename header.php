@@ -1,69 +1,41 @@
+<!DOCTYPE html>
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Logo Nav - Start Bootstrap Template</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/logo-nav.css" rel="stylesheet">
-    <link href="media/css/jquery.dataTables.css" rel="stylesheet">
-	 <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-
-  <script type="text/javascript" language="javascript" src="media/js/jquery.dataTables.js">
-  </script>
-
- 
-
-<script>
-  $(document).ready(function() {
-      $('#tabla1').DataTable({
-            dom: 'lBfrtip',
-            buttons: [
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="plugins/morris/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
 
 
-                 {
-                 extend: 'print',
-                 
 
-            text: 'Imprimir',
-            autoPrint: true,
-            //title: 'asdasd',
-              },'excel',
-           
-            ],
-            "language": {
-            "lengthMenu": "Mostrar _MENU_ registros por pagina &nbsp;&nbsp;&nbsp;",
-            "zeroRecords": "No se encuentra esa coincidencia",
-            "info": "Pagina _PAGE_ de _PAGES_",
-            "infoEmpty": "No hay registros",
-            "print" : "Imprimir",
-
-            "infoFiltered": "(buscando entre _MAX_ registros)",
-            "search":         "Filtrar Registros : &nbsp",
-               paginate: {
-                first:      "Primera Pagina",
-                previous:   "Anterior",
-                next:       "Siguiente",
-                last:       "Ultima"
-            }
-        }
-      });
-    } 
-
-    );
-
-</script>
-
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+
+
+
+

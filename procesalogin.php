@@ -1,6 +1,9 @@
-<?php include("header.php"); 
+ 
+<?php 
+ session_start();
+include("header.php"); 
  include("conexion.php"); 
- session_start(); 
+
 //var_dump($_POST);
 //recibe las variables de la pagina anterior, y las almacenas en variables nuevas
 $nombreusuario = $_POST['email'];
@@ -23,7 +26,7 @@ if(!$resultado1) {
 //no hay errores asi que ejecuta todo esto: 
 echo "";
 //echo "El id del usuario es".$_SESSION["idusuariologin"];
-var_dump($_SESSION);
+//var_dump($_SESSION);
 }
 //consultamos el numero de filas que tiene el dataset RESULTADO  con la funcion mysql_num_rows nos devuelve 0 si no tiene nada
 $existeusuario = mysql_num_rows($resultado1);

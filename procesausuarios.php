@@ -1,25 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
+
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
-</head>
-<body>
-	<?php 
+
+
+
+
+
+
+
+
+
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Listado de Usuarios
+        <small>advanced tables</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
+        <li><a href="listadousuarios.php">Listado Usuarios</a></li>
+       
+      </ol>
+    </section>
+<div class="box box-primary">
+
+
+    <?php 
 //recibe las variables de la pagina anterior, y las almacenas en variables nuevas
 $nombre = $_POST['nombre'];
 $email = $_POST['email'];
-$contrasena = $_POST['contrasena'];
+
 $con = new DB;
 //ejecutas la funcion conectar y pasas el resultado a la variable $buscarpersona
     $con->conectar();
     //guardas la QUERY en una variable tipo stringi
-    $strConsulta = "INSERT INTO `usuarios` (`idusuarios`,`nombre`, `email`, `contrasena`) 
-    VALUES ('', '$nombre', '$email', '$contrasena')";
+    $strConsulta = "INSERT INTO `usuarios` (`nombre`, `email`) 
+    VALUES ( '$nombre', '$email')";
 
     //Imprimir la query para ver si esta correcta
   //  echo "<br>consulta : ".$strConsulta.mysql_error();
@@ -38,6 +56,88 @@ if (!$resultado1) {
 }
 
 ?>
-</body>
-</html>
-<!-- REGISTRO USUARIOS REGISTRO USUARIOS- REGISTRO USUARIOS- REGISTRO USUARIOS- REGISTRO USUARIOS- -->
+
+
+</div>
+
+
+  </div>
+
+
+<!-- CAJA DE CONTENIDO CONDENIDO -->
+ 
+
+
+<!-- HASTA AQUI CONTENIDO -->
+
+ <?php include('footer.php');?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

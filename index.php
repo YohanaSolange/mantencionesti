@@ -1,51 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include("header.php"); ?>
-<?php include("conexion.php"); ?>
-<?php session_start(); ?>
-<!--<?php //include ("navbar.php"); ?> -->
-<div class="container" >
-    <div class="row">
-        <div class="span12">
-            
-              <fieldset>
-                <div id="legend">
-                <form class='' action='procesalogin.php' method='POST'>
-                  <legend class=""><p class=text-center  >Iniciar Sesión</p></legend>
-                </div>
-                <div class="control-group">
-                  <!-- Username -->
-                <p class=text-center><label class="control-label" for="email" class="input-small">Email:</p></label>
-                  <div class="controls"></p>
-                    <p class=text-center><input type="email" id="email" name="email" placeholder="Email" class="input-xlarge" value= "" required/></p>
-                  </div>
-                </div>
-                <div class="control-group">
-                  <!-- Password-->
-                  <p class=text-center><label class="control-label" for="contrasena" class="input-small">Contraseña:</label>
-                  <div class="controls"></p>
-                    <p class=text-center><input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="input-xlarge" value= "" required/></p>
-                  </div>
-                </div>
-                <div class="control-group">
-                  <!-- Button -->
-                  <br>
-                  <div class="controls"><p class=text-center>
-                    <button  type="submit" class="btn btn-primary" value="login" name="login" role="form">Aceptar</button></p>
+<?php 
 
-                  </div>
-                </div>
-              </fieldset>
-            </form>
+include('header.php');
+
+
+?>
+
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Mantenciones </b>TI</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Por favor inicie sesion...</p>
+
+    <form action="procesalogin.php" method="post">
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password" id="contrasena" name="contrasena">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
         </div>
-    </div>
-</div>
-<a class="navbar-brand" href="#">
-<img class=" img-responsive img-center " src="img/logo-yadran.png" alt="" width="100%"></a>
-   
- <br>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
 
-<p class=text-center>
- <a href="solicitudmantenciones.php" type="submit" class="btn -link">Hacer una Solicitud</button></p>
+    <div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Solicite una Mantencion</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+        Google+</a>
+    </div>
+    <!-- /.social-auth-links -->
+
+    <a href="#">I forgot my password</a><br>
+    <a href="register.html" class="text-center">Register a new membership</a>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+
+
+
+
+
+  
+
+
+
+<!-- FOOTER JQUERY -->
+<!-- jQuery 3.1.1 -->
+
 </body>
 </html>
