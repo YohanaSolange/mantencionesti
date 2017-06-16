@@ -31,19 +31,19 @@
                      include_once("conexion.php");
                      
                      $con2 = new DB;
-                     $strConsultaComputadores = "select * from computadores";
+                     $strConsultaComputadores = "select * from equipos";
                      $con2->conectar();
                      $buscarComputadoresresultados = mysql_query($strConsultaComputadores);
                      $numregistrosComputadores= mysql_num_rows($buscarComputadoresresultados);
                      ?>
-                  <select class="form-control" id='idcomputador' name='idcomputador'>
+                  <select class="form-control" id='idequipos' name='idequipos'>
                   <?php
                      for ($i=0; $i<$numregistrosComputadores; $i++)
                      {
                      $fila = mysql_fetch_array($buscarComputadoresresultados);
-                     $id_computadores = $fila['idcomputadores'];
+                     $id_equipos = $fila['idequipos'];
                      $nombre_equipo = $fila['nombreequipo'];
-                     echo "<option value='$id_computadores'>$nombre_equipo</option>";
+                     echo "<option value='$id_equipos'>$nombre_equipo</option>";
                      }
                      ?>
                   </select>
@@ -64,9 +64,9 @@
                      for ($i=0; $i<$numregistrosComputadores; $i++)
                      {
                      $fila = mysql_fetch_array($buscarComputadoresresultados);
-                     $id_computadores = $fila['idtipo_equipo'];
-                     $tipo_equipo = $fila['glosa'];
-                     echo "<option value='$id_computadores'>$tipo_equipo</option>";
+                     $idtipo_equipo = $fila['idtipo_equipo'];
+                     $equipo_nombre = $fila['glosa_equipo'];
+                     echo "<option value='$idtipo_equipo'>$equipo_nombre</option>";
                      }
                      ?>
                   </select>
@@ -85,7 +85,7 @@
                   <textarea type="text" class="form-control"  id="fallas" name="fallas" rows="3" cols="80" placeholder="descripcion de la fallas "></textarea>
                </div>
                <div class="form-group">
-                  <label for="exampleInputEmail1">Detalles de Correciones.</label>
+                  <label for="exampleInputEmail1">Detalles de Correcciones.</label>
                   <textarea type="text" class="form-control"  id="correciones" name="correcciones" placeholder="descripcion de correciones" ></textarea>
                </div>
                <div class="form-group">
@@ -106,14 +106,14 @@
                      $buscarTiporesultados = mysql_query($strConsultaTipo);
                      $numregistrosTipo= mysql_num_rows($buscarTiporesultados);
                      ?>
-                  <select class="form-control" id='idtipo' name='idtipo'>
+                  <select class="form-control" id='idtipomantencion' name='idtipomantencion'>
                   <?php
                      for ($i=0; $i<$numregistrosTipo; $i++)
                      {
                      $fila = mysql_fetch_array($buscarTiporesultados);
-                     $id_tipo = $fila['idTIPO'];
-                     $tipo_texto = $fila['tipotexto'];
-                     echo "<option value='$id_tipo'>$tipo_texto</option>";
+                     $idtipo_mantencion = $fila['idtipo_mantencion'];
+                     $mantencion_nombre = $fila['glosa_mantencion'];
+                     echo "<option value='$idtipo_mantencion'>$mantencion_nombre</option>";
                      }
                      ?>
                   </select>
