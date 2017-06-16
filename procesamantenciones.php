@@ -22,22 +22,22 @@
 //recibe las variables de la pagina anterior, y las almacenas en variables nuevas
 $IP = $_POST['IP'];
 $fallas = $_POST['fallas'];
-$nombreequipo = $_POST['idequipos'];
+$id_equipo = $_POST['idequipos'];
 $correcciones = $_POST['correcciones'];
 $fecha = $_POST['fecha'];
 $pendientes= $_POST['pendientes'];
 $idadministradores= $_SESSION['idusuariologin'];
-$idtipoequipo=$_POST['idtipo_equipo'];
-$idtipomantencion = $_POST['idtipo_mantencion'];
+$idtipoequipo=$_POST['idtipoequipo'];
+$idtipomantencion = $_POST['idtipomantencion'];
 
 $conexionpromantenciones = new DB;
 //ejecutas la funcion conectar y pasas el resultado a la variable $buscarpersona
 $conexionpromantenciones->conectar(); 
     //guardas la QUERY en una variable tipo stringi
-$strConsulta = "INSERT INTO `mantenciones` ( `IPmantenciones`, `fallas`,  `idequipos`,`correcciones`, `fecha`, `pendientes`, `idadministradores`, `idtipo_equipo`, `idtipo_mantencion`) VALUES 
-( '$IP', '$fallas', '$correcciones', '$fecha', '$pendientes', '$idadministradores', '$idtipoequipo', '$idtipomantencion' )"; 
+$strConsulta = "INSERT INTO `mantenciones` ( `IPmantencion`, `falla`,  `id_equipo`,`correcciones`, `fecha`, `pendiente`, `id_administrador`, `id_tipo_equipo`, `id_tipo_mantencion`) VALUES 
+( '$IP', '$fallas', '$id_equipo' ,'$correcciones', '$fecha', '$pendientes', '$idadministradores', '$idtipoequipo', '$idtipomantencion' )"; 
 
-echo $strConsulta;
+//echo $strConsulta;
 
 //Imprimir la query para ver si esta correcta
 //echo "<br>consulta : ".$strConsulta." ";
@@ -49,10 +49,16 @@ if (!$resultado1) {
     die("<div class='alert alert-danger'><strong>No se pudo registrar, error:</strong></div> " . mysql_error());
 }else{
     //no hay errores asi que ejecuta todo esto: 
-    echo "<div class='alert alert-success'><strong>Registro Correcto</strong></div>";
+    echo "<div class='alert alert-success'><strong>Registro de Equipo Correcto</strong><a href='listadomantenciones.php' class='button'>Volver</a></div>";
 }
 ?>
 
+
+<?php 
+//devuelve el id del ultimo insert 
+//echo mysql_insert_id(); 
+
+?>
 
 </div>
 

@@ -41,7 +41,7 @@
                      for ($i=0; $i<$numregistrosComputadores; $i++)
                      {
                      $fila = mysql_fetch_array($buscarComputadoresresultados);
-                     $id_equipos = $fila['idequipos'];
+                     $id_equipos = $fila['id_equipo'];
                      $nombre_equipo = $fila['nombreequipo'];
                      echo "<option value='$id_equipos'>$nombre_equipo</option>";
                      }
@@ -64,8 +64,8 @@
                      for ($i=0; $i<$numregistrosComputadores; $i++)
                      {
                      $fila = mysql_fetch_array($buscarComputadoresresultados);
-                     $idtipo_equipo = $fila['idtipo_equipo'];
-                     $equipo_nombre = $fila['glosa_equipo'];
+                     $idtipo_equipo = $fila['id_tipo_equipo'];
+                     $equipo_nombre = $fila['glosa_tipo_equipo'];
                      echo "<option value='$idtipo_equipo'>$equipo_nombre</option>";
                      }
                      ?>
@@ -101,7 +101,7 @@
                   <?php 
                      include_once("conexion.php");
                      $con2 = new DB;
-                     $strConsultaTipo = "select * from tipo_mantencion";
+                     $strConsultaTipo = "select * from tipo_mantenciones";
                      $con2->conectar();
                      $buscarTiporesultados = mysql_query($strConsultaTipo);
                      $numregistrosTipo= mysql_num_rows($buscarTiporesultados);
@@ -111,8 +111,8 @@
                      for ($i=0; $i<$numregistrosTipo; $i++)
                      {
                      $fila = mysql_fetch_array($buscarTiporesultados);
-                     $idtipo_mantencion = $fila['idtipo_mantencion'];
-                     $mantencion_nombre = $fila['glosa_mantencion'];
+                     $idtipo_mantencion = $fila['id_tipo_mantencion'];
+                     $mantencion_nombre = $fila['glosa_tipo_mantencion'];
                      echo "<option value='$idtipo_mantencion'>$mantencion_nombre</option>";
                      }
                      ?>

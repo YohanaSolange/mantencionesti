@@ -46,7 +46,7 @@
             <?php 
             include_once("conexion.php");
             $con= new DB;
-            $strConsulta = "SELECT * FROM `equipos` inner JOIN usuarios on equipos.idusuarios=usuarios.idusuarios";
+            $strConsulta = "SELECT * FROM `equipos` inner JOIN usuarios on equipos.id_usuario=usuarios.id_usuario";
             $con->conectar();
             $buscarComputadoresresultados = mysql_query($strConsulta);
             $numregistrosComputadores= mysql_num_rows($buscarComputadoresresultados);
@@ -54,8 +54,8 @@
               {
               //variable asociativa FILA
               $fila = mysql_fetch_array($buscarComputadoresresultados);
-              $id_euqipo= $fila['idequipos'];
-              $ip_equipo=$fila['IPequipos'];
+              $id_equipo= $fila['id_equipo'];
+              $ip_equipo=$fila['IPequipo'];
               $mac_equipo= $fila['mac'];
               $modelo_equipo= $fila['modelo'];
               $so_equipo= $fila['so'];
@@ -75,15 +75,14 @@
               echo "<td>$modelo_equipo</td>";
               echo "<td>$so_equipo</td>";
               echo "<td>$ram_equipo</td>";
-              echo "<td>$procesador_equipo/td>";
+              echo "<td>$procesador_equipo</td>";
               echo "<td>$memoriahdd_equipo</td>";
               echo "<td>$descripcion</td>";
               echo "<td>$id_usuario</td>";
               echo "<td>$nombre_equipo</td>";
               echo "<td><option value='$estado_equipo'>ACTIVO</td>";
 
-echo"
-<td><a href='editarcomputadores.php?idcomputadores=$id_compu' class='btn btn-info' role='button' >Editar</button>
+echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-info' role='button' >Editar</button>
 </td></tr>";
               }
              ?>

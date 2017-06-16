@@ -53,7 +53,7 @@
               <?php 
                include_once("conexion.php");
             $con2 = new DB;
-            $strConsultaMantenciones = "SELECT * FROM `mantenciones` left join computadores on mantenciones.Computadores_id = computadores.idcomputadores left join administradores on mantenciones.Administradores_id = administradores.idadministradores left join tipo_mantencion on tipo_mantencion.idTIPO=mantenciones.idtipo_mantencion ";
+            $strConsultaMantenciones = "SELECT * FROM `mantenciones` left join equipos on mantenciones.id_equipo = equipos.id_equipo left join administradores on mantenciones.id_administrador = administradores.id_administrador left join tipo_mantenciones on tipo_mantenciones.id_tipo_mantencion=mantenciones.id_tipo_mantencion ";
 
             //echo $strconsultaMantenciones
 
@@ -72,16 +72,16 @@
               {
               //variable asociativa FILA
               $fila = mysql_fetch_array($buscarMantencionesresultados);
-              $id_mantenciones= $fila['idmantenciones'];
-              $IP_mantenciones= $fila['IPmantenciones'];
-              $fallas_mantenciones= $fila['fallas'];
+              $id_mantenciones= $fila['id_mantencion'];
+              $IP_mantenciones= $fila['IPmantencion'];
+              $fallas_mantenciones= $fila['falla'];
               $correcciones_mantenciones= $fila['correcciones'];
               $fecha_mantenciones= $fila['fecha'];
-              $pendientes_mantenciones= $fila['pendientes'];
+              $pendientes_mantenciones= $fila['pendiente'];
               $nombre_usuario = $fila['nombreequipo'];
               $nombre_admin = $fila['nombre'];
-              $idtipo=$fila['idtipo_mantencion'];
-              $tipotexto=$fila['tipotexto'];
+              $idtipo=$fila['id_tipo_mantencion'];
+              $glosa_tipo_mantencion=$fila['glosa_tipo_mantencion'];
               echo "<tr>";
               echo "<td>$id_mantenciones</td>";
               echo "<td> $IP_mantenciones</td>";
@@ -91,7 +91,7 @@
               echo "<td> $pendientes_mantenciones</td>";
               echo "<td> $nombre_usuario</td>";
               echo "<td> $nombre_admin</td>";
-              echo "<td><option value='$idtipo'>$tipotexto</option></td>";
+              echo "<td><option value='$idtipo'>$glosa_tipo_mantencion</option></td>";
               echo "</tr>";
               }
 }

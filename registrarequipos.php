@@ -46,6 +46,12 @@
                 </div>
 
 
+                          <div class="form-group">
+                  <label for="exampleInputEmail1">Numero de Serie</label>
+                  <input type="text" class="form-control"  id="numeroserie" name="numeroserie" placeholder="serie..." >
+                </div>
+
+
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ip</label>
                   <input type="text" class="form-control"  id="IP" name="IP" placeholder="172.0.0.1" >
@@ -126,10 +132,43 @@
                     {
                  //variable asociativa FILA
                     $fila = mysql_fetch_array($buscarUsuariosresultados);
-                    $id_usuario = $fila['idusuarios'];
+                    $id_usuario = $fila['id_usuario'];
                     $nombre_usuario = $fila['nombre'];
                     //<option value='0'>Sin Cliente</option>
                     echo "<option value='$id_usuario'> $nombre_usuario </option>";
+                    }
+                    ?> </select>
+
+
+
+                </div>
+
+
+
+                          <div class="form-group">
+                  <label for="exampleInputEmail1">Tipo de Equipo</label>
+                   <?php
+                  include_once("conexion.php");
+
+                  $con3 = new DB;
+                  $strConsultaUsuarios = "select * from tipo_equipo";
+                  $con3->conectar();
+                  $buscarUsuariosresultados = mysql_query($strConsultaUsuarios);
+                 
+                   ?>
+
+                  <select class="form-control" id='id_tipo_equipo' name='id_tipo_equipo'>
+             
+                  <?php 
+                  $numregistrosUsuarios= mysql_num_rows($buscarUsuariosresultados);
+                   for ($i=0; $i<$numregistrosUsuarios; $i++)
+                    {
+                 //variable asociativa FILA
+                    $fila = mysql_fetch_array($buscarUsuariosresultados);
+                    $id_tipo_equipo = $fila['id_tipo_equipo'];
+                    $glosa_tipo_equipo = $fila['glosa_tipo_equipo'];
+                    //<option value='0'>Sin Cliente</option>
+                    echo "<option value='$id_tipo_equipo'> $glosa_tipo_equipo </option>";
                     }
                     ?> </select>
 

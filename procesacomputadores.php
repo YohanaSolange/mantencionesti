@@ -17,7 +17,9 @@ $conexion = new DB;
 //ejecutas la funcion conectar y pasas el resultado a la variable $buscarpersona
 $conexion->conectar();
     //guardas la QUERY en una variable tipo stringi
-$strConsulta = "INSERT INTO `computadores` (`idcomputadores`, `IPcomputadores`, `mac`, `modelo`, `so`, `ram`,`procesador`, `memoriahdd`, `programas`,`Usuarios_id`, `nombreequipo`) VALUES ('', '$IP', '$mac', '$modelo', '$so', '$ram', '$procesador', '$memoriahdd', '$programas', '$idusuarios', '$nombreequipo')";
+$strConsulta = "INSERT INTO `equipos` ( `IPcomputadores`, `mac`, `modelo`, `so`, `ram`,`procesador`, `memoriahdd`, `programas`,`Usuarios_id`, `nombreequipo`) VALUES ( '$IP', '$mac', '$modelo', '$so', '$ram', '$procesador', '$memoriahdd', '$programas', '$idusuarios', '$nombreequipo')";
+
+echo $strConsulta;
 
     //Imprimir la query para ver si esta correcta
    // echo "<br>consulta : ".$strConsulta.mysql_error();

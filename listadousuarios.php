@@ -57,7 +57,7 @@
               {
               //variable asociativa FILA
               $fila = mysql_fetch_array($buscarUsuariosresultados);
-              $id_usuarios= $fila['idusuarios'];
+              $id_usuarios= $fila['id_usuario'];
               $nombre_usuarios= $fila['nombre'];
               $email_usuarios= $fila['email'];
               $estado_usuarios= $fila['estado'];

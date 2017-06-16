@@ -36,7 +36,7 @@ $existeusuario = mysql_num_rows($resultado1);
             $auteusu = mysql_fetch_array($resultado1);
             $nombreusuariologin= $auteusu['nombre'];
             $emailusuariologin= $auteusu['email'];
-            $idusuariologin = $auteusu['idadministradores'];
+            $idusuariologin = $auteusu['id_administrador'];
             echo "<div class='alert alert-success'><strong><p class=text-left> Ha iniciado sesión correctamente</p> ";
             $_SESSION["usuvalidado"]= 1;
             $_SESSION["nombreusuariovalidado"]= $nombreusuariologin;
