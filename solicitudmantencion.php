@@ -1,7 +1,7 @@
 <?php 
 
 include('header.php');
-
+include('conexion.php');
 
 ?>
 
@@ -24,10 +24,75 @@ if(isset($_GET['enviado'])){
 
 
 
-echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-info'></i> Se enviado su solicitud</h4>Estaremos en contacto con usted.</div>";
 
 
 
+
+
+$comentario= $_POST['comentario'];
+$nombre= $_POST['nombre'];
+$id_tipo_solicitud= $_POST['id_tipo_solicitud'];
+$email= $_POST['email'];
+$id_tipo_equipo= $_POST['id_tipo_equipo'];
+//$url_fotografia= $_POST['fileToUpload'];
+
+$con = new DB;
+    $con->conectar();
+    $strConsulta = "INSERT INTO `solicitudes` ( `comentario`, `fecha`, `nombre`, `id_tipo_solicitud`, `email`, `id_tipo_equipo`, `url_fotografia`) 
+    VALUES ('$comentario',now(), '$nombre', '$id_tipo_solicitud', '$email', '$id_tipo_equipo', '1')";
+
+
+$resultado1 = mysql_query($strConsulta);
+
+//retorna el ID del ultimo registro insertado
+$ultimoidmantencion = mysql_insert_id();
+
+//var_dump($_FILES);
+
+try {
+  $target_dir = "img/imgsolicitudes/";
+$target_file = $target_dir . $ultimoidmantencion .".JPG";
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+if(!$_FILES["fileToUpload"]['size']==0) {
+
+      //var_dump($_FILES);
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+       // echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+
+        if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
+               echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-info'></i> Se subio correctamente la imagen</div>";
+         $strConsulta2 = "update solicitudes set url_fotografia = '$target_file' where id_solicitud = $ultimoidmantencion";
+         
+
+$resultado2 = mysql_query($strConsulta2);       
+        }
+    } else {
+       // echo "File is not an image.";
+        $uploadOk = 0;
+    }
+
+
+}
+} catch (Exception $e) {
+  
+}
+
+
+
+
+
+if (!$resultado1) {
+    die("<div class='alert alert-danger'><strong>No se pudo registrar, error:</strong></div> " . mysql_error());
+}else{
+    //no hay errores asi que ejecuta todo esto: 
+    echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-info'></i> Se enviado su solicitud</h4>Estaremos en contacto con usted.</div>";
+}
+
+//id_solicitud  comentario  fecha estado  id_usuario  id_tipo_solicitud email id_tipo_equipo  url_fotografia
 }
 
 ?>
@@ -47,7 +112,7 @@ echo "<div class='alert alert-success alert-dismissible'><button type='button' c
 
 
                    <div class="form-group">
-                  <label for="exampleInputEmail1">Por favor introdusca su Email:</label>
+                  <label for="exampleInputEmail1">Por favor introduzca su Email:</label>
                   <input type="email" class="form-control"  id="email" name="email" placeholder="suemail@email.com"  required />
                 </div>
 
@@ -55,8 +120,8 @@ echo "<div class='alert alert-success alert-dismissible'><button type='button' c
 
 
                    <div class="form-group">
-                  <label for="exampleInputEmail1">Por favor introdusca su Nombre</label>
-                  <input type="text" class="form-control"  id="nombre" name="nombre" placeholder=" "required />
+                  <label for="exampleInputEmail1">Por favor introduzca su Nombre</label>
+                  <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre el solicitante" required />
                 </div>
 
 

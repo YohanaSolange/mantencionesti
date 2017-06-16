@@ -331,6 +331,7 @@
           <ul class="treeview-menu">
             <li class="active"><a href="listadomantenciones.php"><i class="fa fa-circle-o"></i>Historial de Mantenciones</a></li>
             <li><a href="registrarmantenciones.php"><i class="fa fa-circle-o"></i>Registrar Mantencion</a></li>
+              <li><a href="listadosolicitudes.php"><i class="fa fa-circle-o"></i>Listado Solicitudes</a></li>
           </ul>
         </li>
 
