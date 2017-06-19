@@ -1,4 +1,4 @@
-<?php  session_start();  ?>
+
 
 
 <?php include("header.php"); ?>
@@ -29,13 +29,15 @@ $pendientes= $_POST['pendientes'];
 $idadministradores= $_SESSION['idusuariologin'];
 $idtipoequipo=$_POST['idtipoequipo'];
 $idtipomantencion = $_POST['idtipomantencion'];
+$monto = $_POST['monto'];
+$idexterno = $_POST['id_externo'];
 
 $conexionpromantenciones = new DB;
 //ejecutas la funcion conectar y pasas el resultado a la variable $buscarpersona
 $conexionpromantenciones->conectar(); 
     //guardas la QUERY en una variable tipo stringi
-$strConsulta = "INSERT INTO `mantenciones` ( `IPmantencion`, `falla`,  `id_equipo`,`correcciones`, `fecha`, `pendiente`, `id_administrador`, `id_tipo_equipo`, `id_tipo_mantencion`) VALUES 
-( '$IP', '$fallas', '$id_equipo' ,'$correcciones', '$fecha', '$pendientes', '$idadministradores', '$idtipoequipo', '$idtipomantencion' )"; 
+$strConsulta = "INSERT INTO `mantenciones` ( `IPmantencion`, `falla`,  `id_equipo`,`correcciones`, `fecha`, `pendiente`, `id_administrador`, `id_tipo_equipo`, `id_tipo_mantencion`, `id_externo`, `monto`) VALUES 
+( '$IP', '$fallas', '$id_equipo' ,'$correcciones', '$fecha', '$pendientes', '$idadministradores', '$idtipoequipo', '$idtipomantencion','$idexterno','$monto' )"; 
 
 //echo $strConsulta;
 

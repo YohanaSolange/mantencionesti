@@ -10,3 +10,8 @@
 ad.js
 TODO
 test.html
+
+
+*.swp
+*.mwb.bak
+*.mwb.beforefix

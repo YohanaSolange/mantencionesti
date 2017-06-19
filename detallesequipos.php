@@ -31,7 +31,7 @@ $id_equipo = $_GET['id_equipo'];
 
 
             $con2 = new DB;
-            $strConsultaMantenciones = "SELECT * FROM `mantenciones` left join equipos on mantenciones.id_equipo = equipos.id_equipo left join administradores on mantenciones.id_administrador = administradores.id_administrador left join tipo_mantenciones on tipo_mantenciones.id_tipo_mantencion=mantenciones.id_tipo_mantencion where mantenciones.id_equipo = $id_equipo order by mantenciones.id_mantencion ";
+            $strConsultaMantenciones = "SELECT * FROM `mantenciones` left join equipos on mantenciones.id_equipo = equipos.id_equipo left join administradores on mantenciones.id_administrador = administradores.id_administrador left join tipo_mantenciones on tipo_mantenciones.id_tipo_mantencion=mantenciones.id_tipo_mantencion where mantenciones.id_equipo = $id_equipo order by mantenciones.id_mantencion asc ";
 
             //echo $strconsultaMantenciones
 
@@ -58,7 +58,7 @@ $id_equipo = $_GET['id_equipo'];
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
-        <li><a href="registrarequipos.php">Registrar Equipos</a></li>
+        <li><a href="listadoequipos.php">Listado Equipo</a></li>
        
       </ol>
     </section>
@@ -89,7 +89,17 @@ $id_equipo = $_GET['id_equipo'];
          
           <div class="thumbnail" >
    
-        <img src="img/1.jpg" alt="Lights" style="width:100%">
+
+    <?php 
+    if ($dataset_equipo['url_fotografia']==NULL){
+      echo "<img src='img/equipos/sin_imagen.jpg' alt='Lights' style='width:100%'>";
+    }else
+    {
+      echo "<img src='img/equipos/".$dataset_equipo['url_fotografia']."' alt='Lights' style='width:100%'>";
+    }
+
+    ?>
+       
        
      
     </div>
@@ -177,6 +187,7 @@ $id_equipo = $_GET['id_equipo'];
  
     <th>REGISTRADOR</th>
      <th class="no-print">TIPO DE MANTENCION</th>
+        <th>Monto</th>
     <!--<th>ESTADO</th> -->
   </tr>
   </thead>
@@ -207,6 +218,9 @@ $id_equipo = $_GET['id_equipo'];
               $nombre_admin = $fila['nombre'];
               $idtipo=$fila['id_tipo_mantencion'];
               $glosa_tipo_mantencion=$fila['glosa_tipo_mantencion'];
+
+              $monto = $fila['monto'];
+
               echo "<tr>";
               echo "<td>$id_mantenciones</td>";
               echo "<td> $IP_mantenciones</td>";
@@ -217,6 +231,7 @@ $id_equipo = $_GET['id_equipo'];
              
               echo "<td> $nombre_admin</td>";
                    echo "<td class='no-print'> $glosa_tipo_mantencion</td>";
+                   echo "<td>$monto</td>";
               echo "</tr>";
               }
 }
@@ -231,8 +246,11 @@ $id_equipo = $_GET['id_equipo'];
       </div>
       <!-- /.row -->
 
+
+
       <div class="row">
         <!-- accepted payments column -->
+        <!--
         <div class="col-xs-6">
           <p class="lead">Payment Methods:</p>
           <img src="../../dist/img/credit/visa.png" alt="Visa">
@@ -244,8 +262,9 @@ $id_equipo = $_GET['id_equipo'];
             Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
             dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
           </p>
-        </div>
+        </div>-->
         <!-- /.col -->
+        <!--
         <div class="col-xs-6">
           <p class="lead">Amount Due 2/22/2014</p>
 
@@ -269,7 +288,7 @@ $id_equipo = $_GET['id_equipo'];
               </tr>
             </tbody></table>
           </div>
-        </div>
+        </div>-->
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -277,12 +296,14 @@ $id_equipo = $_GET['id_equipo'];
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
+
+        <!--
           <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
           <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
           </button>
           <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
             <i class="fa fa-download"></i> Generate PDF
-          </button>
+          </button>-->
         </div>
       </div>
     </section>
