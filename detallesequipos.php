@@ -108,6 +108,10 @@ $id_equipo = $_GET['id_equipo'];
           </div>
         </div>
 
+
+
+
+
         <div class="col-sm-3 invoice-col">
          
           <address>
@@ -172,9 +176,14 @@ $id_equipo = $_GET['id_equipo'];
       </div>
       <!-- /.row -->
 
+
       <!-- Table row -->
       <div class="row">
         <div class="col-xs-12 table-responsive">
+                <h2 class="page-header">
+            <i class="fa fa-history"></i> Historial de Mantenciones:
+            
+          </h2>
          <table class="table"  id="tabla1" cellspacing="0" width="100%">
     <thead>
   <tr>

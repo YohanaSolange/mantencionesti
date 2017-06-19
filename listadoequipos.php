@@ -84,10 +84,7 @@
               echo "<td>$descripcion</td>";
               echo "<td>$id_usuario</td>";
 
-           
-              echo "<td><option value='$estado_equipo'>ACTIVO</td>";
-
-              echo "<td>$nombre_equipo</td>";
+         
 
                    if ($fila['estado']==1){
 
@@ -98,10 +95,10 @@
         }
 
 
-echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-info' role='button' >Editar</button>
+echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-warning' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
 </td>";
 
-echo"<td><a href='detallesequipos.php?id_equipo=$id_equipo' class='btn btn-info' role='button' >Historial</button>
+echo"<td><a href='detallesequipos.php?id_equipo=$id_equipo' class='btn btn-success' role='button' ><span class='ionicon ion-clipboard' aria-hidden='true'> Historial</button>
 </td></tr>";
               }
              ?>

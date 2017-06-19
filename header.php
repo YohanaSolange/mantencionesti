@@ -84,6 +84,82 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+<script src="js/jquery.maskedinput.min.js" type="text/javascript"></script> 
+
+
+
+<script type="text/javascript">
+    $(function() {
+        $.mask.definitions['~'] = "[+-]";
+
+        $("#IP").mask("999.999.999.999");
+        $("#fechatermino").mask("99/99/9999");
+        $("#fechabuscar2").mask("99/99/9999");
+        //$("#fecha").mask("99/99/9999",{completed:function(){alert("Fecha Correcta");}});
+        $("#rut").mask("99999999");
+        $("#telefono").mask("999999999");
+          $("#horainicio").mask("99:99:99");
+           $("#horasalida").mask("99:99:99");
+
+
+           $("#mesbuscar").mask("99");
+                 $("#aniobuscar").mask("9999");
+                     //  $("#rutbuscar").mask("99999999");
+
+        /*
+        $("#phoneExt").mask("(999) 999-9999? x99999");
+        $("#iphone").mask("+33 999 999 999");
+        $("#tin").mask("99-9999999");
+        $("#ssn").mask("999-99-9999");
+        $("#product").mask("a*-999-a999", { placeholder: " " });
+        $("#eyescript").mask("~9.99 ~9.99 999");
+        $("#po").mask("PO: aaa-999-***");
+        $("#pct").mask("99%");
+
+        $("input").blur(function() {
+            $("#info").html("Unmasked value: " + $(this).mask());
+        }).dblclick(function() {
+            $(this).unmask();
+        });
+
+        */
+    });
+    
+</script>
+
+ 
+             <script type="text/javascript">
+             //valida que se pueda ingresar solo texto en un textbox y espacios
+  $(document).ready(function() {
+      $('#nombres,#apellidos,#nombre,#apellido').keypress(function(key) {
+
+          if ((key.charCode < 97 || key.charCode > 122)//letras mayusculas
+                && (key.charCode < 65 || key.charCode > 90) //letras minusculas
+                && (key.charCode != 45) //retroceso
+                && (key.charCode != 241) //ñ
+                 && (key.charCode != 209) //Ñ
+                 && (key.charCode != 32) //espacio
+                 && (key.charCode != 225) //á
+                 && (key.charCode != 233) //é
+                 && (key.charCode != 237) //í
+                 && (key.charCode != 243) //ó
+                 && (key.charCode != 250) //ú
+                 && (key.charCode != 193) //Á
+                 && (key.charCode != 201) //É
+                 && (key.charCode != 205) //Í
+                 && (key.charCode != 211) //Ó
+                 && (key.charCode != 218) //Ú
+                )
+                return false;
+
+      });
+      /*
+      $('#apellidos').keypress(function(key) {
+          if(key.charCode < 97 || key.charCode > 122) return false;
+      });*/
+  });
+  </script>
+
 
 
 <script>
