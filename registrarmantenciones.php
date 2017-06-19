@@ -73,6 +73,31 @@
                </div>
 
 
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Personal Externo</label>
+                  <?php 
+                     include_once("conexion.php");
+                     
+                     $con4 = new DB;
+                     $strConsultaComputadores = "select * from externos";
+                     $con4->conectar();
+                     $buscarExternos = mysql_query($strConsultaComputadores);
+                     $numregistrosComputadores= mysql_num_rows($buscarExternos);
+                     ?>
+                  <select class="form-control" id='id_externo' name='id_externo'>
+                  <?php
+                     for ($i=0; $i<$numregistrosComputadores; $i++)
+                     {
+                     $fila = mysql_fetch_array($buscarExternos);
+                     $id_externo = $fila['id_externo'];
+                     $nombre_externo = $fila['nombre'];
+                     echo "<option value='$id_externo'>$nombre_externo</option>";
+                     }
+                     ?>
+                  </select>
+               </div>
+
+
 
                <?php date('Y-m-d');        
                   ?>
@@ -84,9 +109,17 @@
                   <label for="exampleInputEmail1">Detalles de fallas</label>
                   <textarea type="text" class="form-control"  id="fallas" name="fallas" rows="3" cols="80" placeholder="descripcion de la fallas "></textarea>
                </div>
+
+
+                         <div class="form-group">
+                  <label for="exampleInputEmail1">Monto CLP</label>
+                  <input type="text" class="form-control"  id="monto" name="monto" placeholder="99999" required>
+               </div>
+
+
                <div class="form-group">
                   <label for="exampleInputEmail1">Detalles de Correcciones.</label>
-                  <textarea type="text" class="form-control"  id="correciones" name="correcciones" placeholder="descripcion de correciones" ></textarea>
+                  <textarea type="text" class="form-control"  id="correciones" name="correcciones" placeholder="descripcion de correciones" required></textarea>
                </div>
                <div class="form-group">
                   <label for="exampleInputEmail1">Seleccione si quedan Mantenciones Pendientes:</label><br>
