@@ -1,15 +1,5 @@
-
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
-
-
-
-
-
-
-
-
-
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -65,7 +55,16 @@
               echo "<td>$id_usuarios</td>";
               echo "<td>$nombre_usuarios</td>";
               echo "<td>$email_usuarios</td>";
-              echo "<td><option value='$estado_usuarios'>ACTIVO</option></td>";
+             
+              if ($fila['estado']==1){
+
+        
+          echo "<td><span class='label label-success'>ACTIVO</span></td>";
+        } else {
+          echo "<td><span class='label label-danger'>DESHABILITADO</span></td>";
+        }
+
+             
               echo "<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-info' role='button' >Editar</button></td></td>";
              } ?>
 </tbody>    
@@ -84,12 +83,5 @@
     </section>
     <!-- /.content -->
   </div>
-
-
-<!-- CAJA DE CONTENIDO CONDENIDO -->
- 
-
-
-<!-- HASTA AQUI CONTENIDO -->
 
  <?php include('footer.php');?>
