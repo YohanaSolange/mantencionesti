@@ -83,10 +83,10 @@
               echo "<td>$memoriahdd_equipo</td>";
               echo "<td>$descripcion</td>";
               echo "<td>$id_usuario</td>";
-<<<<<<< HEAD
+
            
               echo "<td><option value='$estado_equipo'>ACTIVO</td>";
-=======
+
               echo "<td>$nombre_equipo</td>";
 
                    if ($fila['estado']==1){
@@ -96,7 +96,7 @@
         } else {
           echo "<td><span class='label label-danger'>DESHABILITADO</span></td>";
         }
->>>>>>> origin/master
+
 
 echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-info' role='button' >Editar</button>
 </td>";
