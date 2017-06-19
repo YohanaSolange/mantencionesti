@@ -35,21 +35,20 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nombre</label>
-                  <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="" >
+                  <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre del Usuario"  input title="" minlength="10" maxlength="42" required 
+         title="Solo se permite letras">
                 </div>
 
 
 
                    <div class="form-group">
                   <label for="exampleInputEmail1">Email</label>
-                  <input type="email" class="form-control"  id="email" name="email" placeholder="" >
+                  <input type="email" class="form-control"  id="email" name="email" placeholder="Email del Usuario" pattern="^[a-z0-9._!#$%&'*+-]+@[a-zA-z0-9.-]+\.[a-z]{2,4}$/" minlength="10" required/>
                 </div>
-
-
-                  
-
-                  
-
+     
+<!--
+"^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;" 
+"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"-->
 
 
               

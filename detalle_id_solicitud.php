@@ -37,9 +37,7 @@ if (isset($_GET['id'])){
             </div>
             <div class="box-body">
 				<adress>
-					<strong>Imagen del problema:</strong>
-				<img src='<?php echo $idassoc['url_fotografia'];?>' width="1000" width="500">
-				<br>
+				
 					
 				<strong>Nombre del solicitante:</strong>
 				<?php echo $idassoc['nombre'];?><br>
@@ -67,6 +65,10 @@ if (isset($_GET['id'])){
 				}
 				
 			?>
+         <br> 
+        <strong>Imagen del Problema:</strong>
+      <img src='<?php echo $idassoc['url_fotografia'];?>' width="1000" width="500">
+        <br>
 				</address>
 
 
