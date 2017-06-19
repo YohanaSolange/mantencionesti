@@ -24,6 +24,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+
+            
               <table id="tabla1" class="table table-bordered table-hover">        
     <thead>
   <tr>
@@ -38,8 +40,7 @@
     <th>MEMORIA</th>
     <th>PROGRAMAS</th>
     <th>NOMBRE</th> 
-   
-    <th>ESTADO</th>
+       <th>ESTADO</th>
     <th>EDITAR</th>
         <th>HISTORIAL</th>
   </tr>  
