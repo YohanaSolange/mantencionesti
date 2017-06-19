@@ -31,7 +31,7 @@ include('navbar.php');
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>150</h3>
-
+          
               <p>Nuevas Solicitudes de Mantencion</p>
             </div>
             <div class="icon">

@@ -1,6 +1,6 @@
  
 <?php 
- session_start();
+
 include("header.php"); 
  include("conexion.php"); 
 
@@ -42,7 +42,7 @@ $existeusuario = mysql_num_rows($resultado1);
             $_SESSION["nombreusuariovalidado"]= $nombreusuariologin;
             $_SESSION["emailusuariovalidado"]= $emailusuariologin;
             $_SESSION["idusuariologin"]=$idusuariologin;
-            
+            $_SESSION["avatarusuario"] = "img/avatar/1.jpg";
          
              
              echo "<div class='alert alert-success''><strong><h2><p class=text-center>Bienvenido $nombreusuariologin - $emailusuariologin </p></h2></strong><p class=text-right>Ir a Pagina Principal  </p><p class=text-right><a class='btn btn-success' href='menuprincipal.php' role='button'>  Aquí  </a></p> </strong></div></div>";
