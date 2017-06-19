@@ -23,7 +23,7 @@
             <div class="box-body">
                <div class="form-group">
                   <label for="exampleInputEmail1">Ip</label>
-                  <input type="text" class="form-control"  id="IP" name="IP" placeholder="" >
+                  <input type="text" class="form-control"  id="IP" name="IP" placeholder="Ingrese IP" required/>
                </div>
                <div class="form-group">
                   <label for="exampleInputEmail1">Nombre de Equipo</label>
@@ -107,19 +107,19 @@
                </div>
                <div class="form-group">
                   <label for="exampleInputEmail1">Detalles de fallas</label>
-                  <textarea type="text" class="form-control"  id="fallas" name="fallas" rows="3" cols="80" placeholder="descripcion de la fallas "></textarea>
+                  <textarea type="text" class="form-control"  id="fallas" name="fallas" rows="3" cols="80" placeholder="Descripción de la fallas "></textarea>
                </div>
 
 
                          <div class="form-group">
                   <label for="exampleInputEmail1">Monto CLP</label>
-                  <input type="text" class="form-control"  id="monto" name="monto" placeholder="99999" required>
+                  <input type="text" class="form-control"  id="monto" name="monto" value='0' pattern="[0-9]+" required>
                </div>
 
 
                <div class="form-group">
                   <label for="exampleInputEmail1">Detalles de Correcciones.</label>
-                  <textarea type="text" class="form-control"  id="correciones" name="correcciones" placeholder="descripcion de correciones" required></textarea>
+                  <textarea type="text" class="form-control"  id="correciones" name="correcciones" placeholder="Descripción de correciones" required></textarea>
                </div>
                <div class="form-group">
                   <label for="exampleInputEmail1">Seleccione si quedan Mantenciones Pendientes:</label><br>

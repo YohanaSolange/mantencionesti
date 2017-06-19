@@ -33,7 +33,6 @@
     <th>ID</th>
     <th>COMENTARIO</th> 
     <th>FECHA</th>
-    <th>ESTADO</th>
     <th>NOMBRE DEL SOLICITANTE</th>
     <th>TIPO DE SOLICITUD</th>
     <th>EMAIL DEL SOLICITANTE</th>
@@ -69,7 +68,6 @@
               echo"<td>$id_solicitud</td>";
               echo"<td>$comentario</td>";
               echo"<td>$fecha</td>";
-              echo"<td>$estado</td>";
               echo"<td>$nombre</td>";
               echo"<td><option value='$id_tipo_solicitud'>$solicitud_glosa</option></td>";
               echo"<td>$email</td>";
@@ -84,7 +82,11 @@
           echo "<td><span class='label label-danger'>ANULADO</span></td>";
         }
 
-              echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud'>Detalle</a></td>";
+            echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud'>Detalle</a></td>";
+              
+             
+
+
               echo "</tr>";
 
              } ?>

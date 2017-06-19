@@ -3,20 +3,16 @@
    <?php
 if (isset($_GET['id'])){
  				$id_solicitud = $_GET['id'];
-            $con3 = new DB;
-            $strConsultaSolicitud = "SELECT * FROM `solicitudes` inner JOIN tipo_solicitud on tipo_solicitud.id_tipo_solicitud=solicitudes.id_tipo_solicitud inner join tipo_equipo on tipo_equipo.id_tipo_equipo=solicitudes.id_tipo_equipo where solicitudes.id_solicitud = '$id_solicitud' ";
+        $con3 = new DB;
+        $strConsultaSolicitud = "SELECT *,solicitudes.estado as estado_solicitud FROM `solicitudes` inner JOIN tipo_solicitud on tipo_solicitud.id_tipo_solicitud=solicitudes.id_tipo_solicitud inner join tipo_equipo on tipo_equipo.id_tipo_equipo=solicitudes.id_tipo_equipo where solicitudes.id_solicitud = '$id_solicitud' ";
             $con3->conectar();
             $buscarSolicitudresultados = mysql_query($strConsultaSolicitud);
-              $id_tipo_equipo=['id_tipo_equipo'];
-              $id_tipo_solicitud=['id_tipo_solicitud'];
-              $glosa_equipo=['glosa_equipo'];
-              $glosa_solicitud=['glosa_solicitud'];
-              
+          
               //variable asociativa FILA
            $idassoc = mysql_fetch_assoc($buscarSolicitudresultados);
          // var_dump($idassoc);
           //echo $strConsultaSolicitud;
-                      } ?>
+          }             ?>
 <div class="content-wrapper">
     <section class="content-header">
       <h1>
@@ -36,9 +32,35 @@ if (isset($_GET['id'])){
               <h3 class="box-title">Detalles de solicitud de mantencion:</h3>
             </div>
             <div class="box-body">
+            <?php
+echo " <br><STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2' <span class='label label-success'>SOLUCIONADO</span><br>";
+
+
+if(isset($_GET['estado'])){
+$estado = $_GET['estado'];
+ $con4 = new DB;
+     $con3->conectar();
+$strConsultaSolicitud2 ="UPDATE `solicitudes` SET `estado` = '3' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";
+  $respuesta=mysql_query($strConsultaSolicitud2);
+echo $strConsultaSolicitud2;
+ if(!$respuesta) { 
+ die("Error    " . mysql_error());
+}else{
+
+}
+}
+
+//var_dump($strConsultaSolicitud);
+echo "</a>";
+
+
+
+
+
+?>
+      
 				<adress>
-				
-					
+        <br>
 				<strong>Nombre del solicitante:</strong>
 				<?php echo $idassoc['nombre'];?><br>
 				<strong>Fecha de la solicitud:</strong>
@@ -54,27 +76,52 @@ if (isset($_GET['id'])){
 				<strong>Estado:</strong>
 				
 				<?php
-			
-				if ($idassoc['estado']==1){
 
-					echo "<span class='label label-warning'>PENDIENTE</span>";
-				}elseif ($idassoc['estado']==2) {
-					echo "<span class='label label-success'>SOLUCIONADO</span>";
+        var_dump($idassoc);
+				if ($idassoc['estado_solicitud']=='1'){
+
+			 echo "<span class='label label-warning'>PENDIENTE</span><br>";
+
+				}elseif ($idassoc['estado_solicitud']=='2') {
+					echo "<span class='label label-success'>SOLUCIONADO</span><br>";
 				} else {
-					echo "<span class='label label-danger'>ANULADO</span>";
+					echo "<span class='label label-danger'>ANULADO</span><br>";
 				}
-				
+
+
+
 			?>
-         <br> 
+        <br> 
         <strong>Imagen del Problema:</strong>
-      <img src='<?php echo $idassoc['url_fotografia'];?>' width="1000" width="500">
-        <br>
+<img src='<?php echo $idassoc['url_fotografia'];?>' width="1000" width="500">
+       <br> 
+
+<!--
+ 
+    <?php if ($idassoc['url_fotografia']=='1') { ?>
+       
+    <img src='<?php $idassoc['url_fotografia'];?>' width="1000" width="500">
+       
+    <?php  } else {   echo "El usuario solicitante no registro imagen asociada"; }
+    
+    ?>-->
+
+
+    <?php if(file_exists($idassoc['url_fotografia'])){
+
+      echo "Existe Imagen";
+
+
+      }
+      else{
+
+        echo "No existe ninguna foto";
+        }?>
 				</address>
 
 
 
             </div>
-            <!-- /.box-body -->
           </div>
           <!-- /.box -->
 

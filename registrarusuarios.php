@@ -35,20 +35,19 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nombre</label>
-                  <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre del Usuario"  input title="" minlength="10" maxlength="42" required 
-         title="Solo se permite letras">
+                  <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre del Usuario"  input title="Solo se permite letras con un mínimo de 8" minlength="8" maxlength="42"  required />
                 </div>
-
+<!-- valida tamano minimo y maximo pero no las letras -->
 
 
                    <div class="form-group">
                   <label for="exampleInputEmail1">Email</label>
-                  <input type="email" class="form-control"  id="email" name="email" placeholder="Email del Usuario" pattern="^[a-z0-9._!#$%&'*+-]+@[a-zA-z0-9.-]+\.[a-z]{2,4}$/" minlength="10" required/>
+                  <input type="email" class="form-control"  id="email" name="email" placeholder="Email del Usuario"  minlength="8" required/>
                 </div>
      
 <!--
-"^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;" 
-"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"-->
+pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;" 
+pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"-->
 
 
               
