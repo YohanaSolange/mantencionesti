@@ -28,6 +28,7 @@
     <thead>
   <tr>
     <th>ID</th>
+     <th>EQUIPO</th>
     <th>IP</th> 
     <th>MAC</th>
     <th>MODELO</th>
@@ -37,9 +38,10 @@
     <th>MEMORIA</th>
     <th>PROGRAMAS</th>
     <th>NOMBRE</th> 
-    <th>EQUIPO</th>
+   
     <th>ESTADO</th>
     <th>EDITAR</th>
+        <th>HISTORIAL</th>
   </tr>  
   </thead>
   <tbody>
@@ -70,6 +72,7 @@
                 //<option value='0'>Sin Cliente</option>
             echo "<tr>";
               echo "<td>$id_equipo</td>";
+              echo "<td>$nombre_equipo</td>";
               echo "<td>$ip_equipo</td>";
               echo "<td>$mac_equipo</td>";
               echo "<td>$modelo_equipo</td>";
@@ -79,10 +82,13 @@
               echo "<td>$memoriahdd_equipo</td>";
               echo "<td>$descripcion</td>";
               echo "<td>$id_usuario</td>";
-              echo "<td>$nombre_equipo</td>";
+           
               echo "<td><option value='$estado_equipo'>ACTIVO</td>";
 
 echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-info' role='button' >Editar</button>
+</td>";
+
+echo"<td><a href='detallesequipos.php?id_equipo=$id_equipo' class='btn btn-info' role='button' >Historial</button>
 </td></tr>";
               }
              ?>

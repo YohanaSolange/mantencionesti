@@ -87,17 +87,42 @@
 
 
 <script>
-  $(function () {
-    $("#tabla1").DataTable();
-    $('#tabla').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
+  $(document).ready(function() {
+      $('#tabla1').DataTable({
+            dom: 'lBfrtip',
+            buttons: [
+
+
+                 {
+                 extend: 'print',
+                 
+
+            text: 'Imprimir',
+            autoPrint: true,
+            //title: 'asdasd',
+              },'excel',
+           
+            ],
+            "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina &nbsp;&nbsp;&nbsp;",
+            "zeroRecords": "No se encuentra esa coincidencia",
+            "info": "Pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros",
+            "print" : "Imprimir",
+
+            "infoFiltered": "(buscando entre _MAX_ registros)",
+            "search":         "Filtrar Registros : &nbsp",
+               paginate: {
+                first:      "Primera Pagina",
+                previous:   "Anterior",
+                next:       "Siguiente",
+                last:       "Ultima"
+            }
+        }
+      });
+    } 
+
+    );
 </script>
 
 
