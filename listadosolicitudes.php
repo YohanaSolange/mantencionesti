@@ -46,7 +46,7 @@
               <?php 
                include_once("conexion.php");
               $con2 = new DB;
-              $strConsultaSolicitud = "SELECT * FROM `solicitudes` inner JOIN  tipo_solicitud on tipo_solicitud.id_tipo_solicitud=solicitudes.id_tipo_solicitud inner join tipo_equipo on tipo_equipo.id_tipo_equipo=solicitudes.id_tipo_equipo ";
+              $strConsultaSolicitud = "SELECT *,solicitudes.estado as estado_solicitud FROM `solicitudes` inner JOIN  tipo_solicitud on tipo_solicitud.id_tipo_solicitud=solicitudes.id_tipo_solicitud inner join tipo_equipo on tipo_equipo.id_tipo_equipo=solicitudes.id_tipo_equipo ";
               $con2->conectar();
               $buscarSolicitudresultados = mysql_query($strConsultaSolicitud);
               $numregistrosSolicitud= mysql_num_rows($buscarSolicitudresultados);
@@ -73,10 +73,10 @@
               echo"<td>$email</td>";
               echo"<td><option value='$id_tipo_equipo'>$equipo_glosa</option></td>";
 
-              if ($fila['estado']==1){
+              if ($fila['estado_solicitud']==1){
 
           echo "<td><span class='label label-warning'>PENDIENTE</span></td>";
-        }elseif ($fila['estado']==2) {
+        }elseif ($fila['estado_solicitud']==2) {
           echo "<td><span class='label label-success'>SOLUCIONADO</span></td>";
         } else {
           echo "<td><span class='label label-danger'>ANULADO</span></td>";

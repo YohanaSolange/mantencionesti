@@ -47,9 +47,6 @@ $existeusuario = mysql_num_rows($resultado1);
              
              echo "<div class='alert alert-success''><strong><h2><p class=text-center>Bienvenido $nombreusuariologin - $emailusuariologin </p></h2></strong><p class=text-right>Ir a Pagina Principal  </p><p class=text-right><a class='btn btn-success' href='menuprincipal.php' role='button'>  Aquí  </a></p> </strong></div></div>";
 
-     
-
-
         } else{
 
 
