@@ -56,7 +56,7 @@ if (isset($_GET['id'])){
 
 
 // cambiar estado a PENDIENTE ID 1 
-echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2' <span class='label label-success'>SOLUCIONADO</span></";
+echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2' <span class='label label-success'>SOLUCIONADO</span></a>";
 if(isset($_GET['estado'])){
 $estado = $_GET['estado'];
  $con4 = new DB;
