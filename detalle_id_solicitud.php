@@ -1,8 +1,55 @@
+
+
+
+
+
+
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
+
+
+
+<?php 
+$id_solicitud = $_GET['id'];
+//consulto si estado esta seteado, si viene la variable desde otro lado
+if(isset($_GET['estado'])){
+  //la variable estado tendra el numero
+$estado = $_GET['estado'];
+
+
+ $con4 = new DB;
+     $con4->conectar();
+$strConsultaSolicitud ="UPDATE `solicitudes` SET `estado` = '$estado' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";//actualizar estado a 2=SOLUCIONADO
+$respuestaEstado=mysql_query($strConsultaSolicitud);
+
+}
+
+?>
+
+
+
+
+<div class="content-wrapper">
+
+  
+<?php 
+if(isset($respuestaEstado)){
+  if (!$respuestaEstado){
+  die("<div class='alert alert-danger alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button> <h4><i class='icon fa fa-check'></i> Error!</h4> No se pudo modificar el <strong>Estado</strong> de la solicitud.".mysql_error()."
+              </div>");
+  }else{
+    echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button> <h4><i class='icon fa fa-check'></i> Ok!</h4> Se ha modificado correctamente el <strong>Estado</strong> de la solicitud.
+              </div>";
+  }
+}
+
+
+
+?>
+
    <?php
 if (isset($_GET['id'])){
- 				$id_solicitud = $_GET['id'];
+        
         $con3 = new DB;
         $strConsultaSolicitud = "SELECT *,solicitudes.estado as estado_solicitud FROM `solicitudes` inner JOIN tipo_solicitud on tipo_solicitud.id_tipo_solicitud=solicitudes.id_tipo_solicitud inner join tipo_equipo on tipo_equipo.id_tipo_equipo=solicitudes.id_tipo_equipo where solicitudes.id_solicitud = '$id_solicitud' ";
             $con3->conectar();
@@ -13,7 +60,7 @@ if (isset($_GET['id'])){
          // var_dump($idassoc);
           //echo $strConsultaSolicitud;
           }             ?>
-<div class="content-wrapper">
+
     <section class="content-header">
       <h1>
         Listado de Usuarios
@@ -50,57 +97,60 @@ if (isset($_GET['id'])){
 				
 				<?php
 
-        //var_dump($idassoc);
 				if ($idassoc['estado_solicitud']=='1'){
-			 echo "<br><span class='label label-warning'>PENDIENTE</span><br>";//Mostrar el estado actual
-
+			 echo "<span class='label label-warning'>PENDIENTE</span><br>";//Mostrar el estado actual
 
 // cambiar estado a PENDIENTE ID 1 a id2 solucionado
-echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> <span class='label label-success'>SOLUCIONADO</span>";
-if(isset($_GET['estado'])){
+
+
+
+
+
+//si no es estado 1, ¿es estado 2?
+				}elseif ($idassoc['estado_solicitud']=='2') {
+					echo "<span class='label label-success'>SOLUCIONADO</span><br>";//Mostrar el estado actual
+         
+
+
+
+        }else  {
+			   echo "<span class='label label-danger'>ANULADO</span><br>";
+  
+        }
+
+        /*
+        if(isset($_GET['estado'])){
 $estado = $_GET['estado'];
  $con4 = new DB;
      $con4->conectar();
-$strConsultaSolicitud ="UPDATE `solicitudes` SET `estado` = '2' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";
+$strConsultaSolicitud ="UPDATE `solicitudes` SET `estado` = '2' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";//actualizar estado a 2=SOLUCIONADO
 $respuesta=mysql_query($strConsultaSolicitud);
 echo "</a>";
-}
-
-				}elseif ($idassoc['estado_solicitud']=='2') {
-					echo "<br><span class='label label-success'>SOLUCIONADO</span><br>";//Mostrar el estado actual
-
-// cambiar estado a SOLUCIONADO ID 2 a id3 anulado
-echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'><span class='label label-danger'>ANULADO</span></a>";
-
-if(isset($_GET['estado'])){
-$estado = $_GET['estado'];
- $con5 = new DB;
-     $con5->conectar();
-$strConsultaSolicitud2 ="UPDATE `solicitudes` SET `estado` = '3' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";
-$respuesta=mysql_query($strConsultaSolicitud2);
-echo "</a>";
-}
+echo "<div align=right><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=$estado'><span class='label label-success'>Guardar</span></a></div>";
+}*/
 
 
-        }else {
-			   echo "<a href='detalle_id_solicitud.php'></a>";
-        }
+
         ?>
 
+  
+        <?php 
 
-        <br> 
-        <strong>Imagen del Problema:</strong>
-<img src='<?php echo $idassoc['url_fotografia'];?>' width="1000" width="500">
-       <br> 
-
+        echo "<br>Modificar estado a: <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> Solucionar </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'>Anular </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=1'>Pendiente </a><br>"
+        ?>
+         
+         <br>
+         <a href='listadosolicitudes.php'><span class='label label-primary'>Volver </span></a> 
+        <br><strong>Imagen del Problema:</strong><br> <!--Mostrar imagen o mensaje -->
 <!--Mostrar el siguiente mensaje si existe o no una Fotografía -->
     <?php if(file_exists($idassoc['url_fotografia'])){
-
-      echo "";
+?>
+<img src='<?php echo $idassoc['url_fotografia'];?>' width="1000" width="500">
+       <br> 
+<?php
       }
       else{
-
-        echo "No existe ninguna foto";
+        echo "El usuario no registro ninguna Imagen.";
         }?>
 				</address>
             </div>
