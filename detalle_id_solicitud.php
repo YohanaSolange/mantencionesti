@@ -55,21 +55,22 @@ if (isset($_GET['id'])){
 			 echo "<br><span class='label label-warning'>PENDIENTE</span><br>";//Mostrar el estado actual
 
 
-// cambiar estado a PENDIENTE ID 1 
-echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2' <span class='label label-success'>SOLUCIONADO</span></a>";
+// cambiar estado a PENDIENTE ID 1 a id2 solucionado
+echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> <span class='label label-success'>SOLUCIONADO</span>";
 if(isset($_GET['estado'])){
 $estado = $_GET['estado'];
  $con4 = new DB;
      $con4->conectar();
 $strConsultaSolicitud ="UPDATE `solicitudes` SET `estado` = '2' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";
 $respuesta=mysql_query($strConsultaSolicitud);
+echo "</a>";
 }
 
 				}elseif ($idassoc['estado_solicitud']=='2') {
 					echo "<br><span class='label label-success'>SOLUCIONADO</span><br>";//Mostrar el estado actual
 
-// cambiar estado a SOLUCIONADO ID 2 
-echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2' <span class='label label-danger'>ANULADO</span></a>";
+// cambiar estado a SOLUCIONADO ID 2 a id3 anulado
+echo " <STRONG> Cambiar estado a: </STRONG><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'><span class='label label-danger'>ANULADO</span></a>";
 
 if(isset($_GET['estado'])){
 $estado = $_GET['estado'];
@@ -77,14 +78,14 @@ $estado = $_GET['estado'];
      $con5->conectar();
 $strConsultaSolicitud2 ="UPDATE `solicitudes` SET `estado` = '3' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";
 $respuesta=mysql_query($strConsultaSolicitud2);
+echo "</a>";
 }
 
 
-				} else {
-					echo "<span class='label label-danger'>ANULADO</span><br>";//Mostrar el estado actual
-	
+        }else {
+			   echo "<a href='detalle_id_solicitud.php'></a>";
         }
-			   ?>
+        ?>
 
 
         <br> 
@@ -102,15 +103,8 @@ $respuesta=mysql_query($strConsultaSolicitud2);
         echo "No existe ninguna foto";
         }?>
 				</address>
-
-
-
             </div>
           </div>
-          <!-- /.box -->
-
-          
-          <!-- /.box -->
         </div>
         <!-- /.col -->
       </div>
