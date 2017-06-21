@@ -15,7 +15,7 @@
     <section class="content-header">
       <h1>
         Listado de Mantenciones
-        <small>Todas las mantecniones registradas</small>
+        <small>Todas las mantenciones registradas</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
@@ -45,6 +45,7 @@
     <th>NOMBRE_EQUIPO</th>
     <th>REGISTRADOR</th>
     <th>TIPO</th>
+    <th>EDITAR</th>
     <!--<th>ESTADO</th> -->
   </tr>
   </thead>
@@ -90,7 +91,8 @@
               echo "<td> $pendientes_mantenciones</td>";
               echo "<td> $nombre_usuario</td>";
               echo "<td> $nombre_admin</td>";
-              echo "<td><option value='$idtipo'>$glosa_tipo_mantencion</option></td>";
+echo"<td><a href='editarmantenciones.php?idmantenciones=$id_mantenciones' class='btn btn-info role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
+</td>";
               echo "</tr>";
               }
 }

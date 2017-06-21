@@ -6,7 +6,7 @@
     <section class="content-header">
       <h1>
         Listado de Usuarios
-        <small>advanced tables</small>
+        <small>Todos los usuarios registrados</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
@@ -20,9 +20,6 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
-            </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="tabla1" class="table table-bordered table-hover">
@@ -65,7 +62,10 @@
         }
 
              
-              echo "<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-info' role='button' >Editar</button></td></td>";
+             
+echo"<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-warning' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
+</td>";
+
              } ?>
 </tbody>    
               </table>

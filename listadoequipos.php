@@ -39,7 +39,7 @@
     <th>MEMORIA</th>
     <th>PROGRAMAS</th>
     <th>NOMBRE</th> 
-       <th>ESTADO</th>
+    <th>ESTADO</th>
     <th>EDITAR</th>
         <th>HISTORIAL</th>
   </tr>  

@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Editar Usuarios
+        Editar Mantenciones
         <small>Cambiar datos registrados</small>
       </h1>
       <ol class="breadcrumb">
@@ -24,15 +24,21 @@
             <div class="box-body">
               <table id="tabla1" class="table table-bordered table-hover">
               <thead>
+              <!-- hacer un assoc-->
 <?php 
    $con = new DB;
    $con->conectar();
     if (ISSET($_GET['editar']) == 1) {
     //significa que estoy editando, aqui va a ir el codigo del update
-      $NOMBRE=$_POST['nombre'];
-      $EMAIL=$_POST['email'];
-      $id_usuarios = $_GET['id_usuario'];
-$strConsultaUpdate = "UPDATE `usuarios` SET `nombre` = '$NOMBRE', `email` = '$EMAIL', `estado` = '1' where id_usuarios='$id_usuarios'";
+      $IPmantencion=$_POST['IPmantencion'];
+      $falla=$_POST['falla'];
+      $correcciones=$_POST['correcciones'];
+      $monto=$_POST['monto'];
+      $estado=$_POST['estado'];
+
+$id_mantencion = $_GET['id_mantencion'];
+
+$strConsultaUpdate = "UPDATE `mantenciones` SET `IPmantencion` = '$IPmantencion', `falla` = '$falla', `correcciones` = '$correcciones',  `monto` = '$monto', `estado`='$estado' where id_mantencion='$id_mantencion'";
 
 
  $resultado2= mysql_query($strConsultaUpdate);
@@ -41,41 +47,14 @@ $strConsultaUpdate = "UPDATE `usuarios` SET `nombre` = '$NOMBRE', `email` = '$EM
  if(!$resultado2) { 
  die("<div class='alert alert-danger'><strong>Error en la consulta </strong></div> " . mysql_error());
 }else{
-  echo "<script>alert('SE MODIFICO EL USUARIO CORRECTAMENTE');</script>";
+  echo "<script>alert('SE MODIFICO LA MANTENCIÓN CORRECTAMENTE');</script>";
 }
    }
 
 
-  $id_usuarios = $_GET['id_usuario'];
-  $strConsulta = "SELECT * from usuarios where id_usuario='$id_usuarios'";
-  $resultado1 = mysql_query($strConsulta);
-  $existeusuario = mysql_num_rows($resultado1);
-if ($existeusuario > 0) {
-  } 
-?>
-<table class="display"  id="tabla1" cellspacing="0" width="100%">
-<form  action='editarusuarios.php?editar=1&idusuario=<?php echo $id_usuarios?>' method="POST">
 
-              <tr><thead>
-              <th>NOMBRE</th>
-              <th>EMAIL</th>
-              <th>EDITAR</th>
-              </thead><tbody>
-<td><input type="text" id="nombre" name="nombre" value='<?php echo $nombre_usuarios ?>'></td>
-<td><input type="email" id="email" name="email" value= '<?php echo $email_usuarios ?>'></td>
 
-   
-<td>
-<button type="submit" class="btn btn-success" >Aceptar</button>
-</td>
-</tr>
-</tbody>    
-</table>
-<p class=text-center>
- <a href="listadousuarios.php" type="submit" class="btn -link">VOLVER</button></p>
-</body>
-</html>
-
+ ?>
             </div>
             <!-- /.box-body -->
           </div>

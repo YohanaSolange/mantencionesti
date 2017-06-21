@@ -1,14 +1,29 @@
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" href="">
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
-</head>
-<body> 
-<caption><h3><center>Modificación de Computadores</center></h3></caption>
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Editar Equipos
+        <small>Cambiar campos registrados</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
+        <li><a href="listadousuarios.php">Listado Usuarios</a></li>
+       
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="tabla1" class="table table-bordered table-hover">
+              <thead>
 <?php 
 
 
@@ -121,5 +136,21 @@ $recorrer = mysql_fetch_array($resultado1);
 </table>
 <p class=text-center>
  <a href="listadocomputadores.php" type="submit" class="btn -link">VOLVER</button></p>
-</body>
-</html>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+ <?php include('footer.php');?>
