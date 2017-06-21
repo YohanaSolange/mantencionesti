@@ -86,7 +86,7 @@ if (isset($_GET['id'])){
 				<?php echo $idassoc['fecha'];?><br>
 				<strong>Email del solicitante:</strong>
 				<?php echo $idassoc['email'];?><br>
-				<strong>Tipo de solicitud:</strong
+				<strong>Tipo de solicitud:</strong>
 				<?php echo $idassoc['glosa_tipo_solicitud'];?><br>
 				<strong>Tipo de equipo:</strong>
 				<?php echo $idassoc['glosa_tipo_equipo'];?><br><!-- Mostrar glosa tipo equipo -->
