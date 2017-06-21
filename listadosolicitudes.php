@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Listado de Usuarios
-        <small>advanced tables</small>
+        Listado de las Solicitudes
+        <small>Todas de las Solicitudes</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
@@ -20,7 +20,6 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -31,15 +30,12 @@
  <thead>
   <tr>
     <th>ID</th>
-    <th>COMENTARIO</th> 
     <th>FECHA</th>
-    <th>NOMBRE DEL SOLICITANTE</th>
-    <th>TIPO DE SOLICITUD</th>
     <th>EMAIL DEL SOLICITANTE</th>
+    <TH>TIPO DE SOLICITUD</TH>
     <TH>TIPO DE EQUIPO</TH>
-    <th>ESTADO</th>
     <TH>VER DETALLES</TH>
-    </tr>
+    <th>ESTADO</th></tr>
     </thead>
   <tbody>
 
@@ -55,10 +51,8 @@
               //variable asociativa FILA
               $fila = mysql_fetch_array($buscarSolicitudresultados);
               $id_solicitud=$fila['id_solicitud'];
-              $comentario=$fila['comentario'];
               $fecha=$fila['fecha'];
               $estado=$fila['estado'];
-              $nombre=$fila['nombre'];
               $id_tipo_solicitud=$fila['id_tipo_solicitud'];
               $solicitud_glosa=$fila['glosa_tipo_solicitud'];
               $email=$fila['email'];
@@ -66,11 +60,10 @@
               $equipo_glosa=$fila['glosa_tipo_equipo'];
               echo "<tr>";
               echo"<td>$id_solicitud</td>";
-              echo"<td>$comentario</td>";
-              echo"<td>$fecha</td>";
-              echo"<td>$nombre</td>";
-              echo"<td><option value='$id_tipo_solicitud'>$solicitud_glosa</option></td>";
+              echo"<td>$fecha</td>";;
               echo"<td>$email</td>";
+              echo"<td><option value='$id_tipo_solicitud'>$solicitud_glosa</option></td>";
+              
               echo"<td><option value='$id_tipo_equipo'>$equipo_glosa</option></td>";
 
               if ($fila['estado_solicitud']==1){

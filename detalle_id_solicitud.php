@@ -63,8 +63,8 @@ if (isset($_GET['id'])){
 
     <section class="content-header">
       <h1>
-        Listado de Usuarios
-        <small>advanced tables</small>
+        Detalle de la Solicitud
+        <small>Solicitud de Mantención </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
@@ -75,72 +75,47 @@ if (isset($_GET['id'])){
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Detalles de solicitud de mantencion:</h3>
-            </div>
             <div class="box-body">
-            
-      
 				<adress>
-        <br>
-				<strong>Nombre del solicitante:</strong>
-				<?php echo $idassoc['nombre'];?><br><!-- Mostrar Nombre -->
-				<strong>Fecha de la solicitud:</strong>
+        <strong>ID:
+        <?php echo $idassoc['id_solicitud'];?></strong><br>
+				<strong>Nombre del solicitante:
+				<?php echo $idassoc['nombre'];?></strong><br><!-- Mostrar Nombre -->
+				
+        <br><strong>Fecha de la solicitud:</strong>
 				<?php echo $idassoc['fecha'];?><br>
 				<strong>Email del solicitante:</strong>
 				<?php echo $idassoc['email'];?><br>
-				<strong>Tipo de solicitud:</strong>
+				<strong>Tipo de solicitud:</strong
 				<?php echo $idassoc['glosa_tipo_solicitud'];?><br>
 				<strong>Tipo de equipo:</strong>
 				<?php echo $idassoc['glosa_tipo_equipo'];?><br><!-- Mostrar glosa tipo equipo -->
-				<strong>Estado Actual de la Solicitud:</strong><!-- Mostrar estado según :-->
-				
-				<?php
+			
+        <strong>Estado Actual de la Solicitud:</strong> <!-- Mostrar estado según :-->
+        <?php
 
-				if ($idassoc['estado_solicitud']=='1'){
-			 echo "<span class='label label-warning'>PENDIENTE</span><br>";//Mostrar el estado actual
+        if ($idassoc['estado_solicitud']=='1'){
+       echo "<span class='label label-warning'>PENDIENTE</span><br>";//Mostrar el estado actual
 
-// cambiar estado a PENDIENTE ID 1 a id2 solucionado
-
-
-
-
-
-//si no es estado 1, ¿es estado 2?
-				}elseif ($idassoc['estado_solicitud']=='2') {
-					echo "<span class='label label-success'>SOLUCIONADO</span><br>";//Mostrar el estado actual
+        }elseif ($idassoc['estado_solicitud']=='2') {
+          echo "<span class='label label-success'>SOLUCIONADO</span><br>";//Mostrar el estado actual
          
-
-
-
         }else  {
-			   echo "<span class='label label-danger'>ANULADO</span><br>";
+         echo "<span class='label label-danger'>ANULADO</span><br>";
   
         }
-
-        /*
-        if(isset($_GET['estado'])){
-$estado = $_GET['estado'];
- $con4 = new DB;
-     $con4->conectar();
-$strConsultaSolicitud ="UPDATE `solicitudes` SET `estado` = '2' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";//actualizar estado a 2=SOLUCIONADO
-$respuesta=mysql_query($strConsultaSolicitud);
-echo "</a>";
-echo "<div align=right><a href='detalle_id_solicitud.php?id=$id_solicitud&estado=$estado'><span class='label label-success'>Guardar</span></a></div>";
-}*/
-
-
-
         ?>
+        
+        <br><strong>Descripción del Problema:<h4>
+        <?php echo $idassoc['comentario'];?></h4></strong><br>
+				
 
-  
-        <?php 
-
-        echo "<br>Modificar estado a: <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> Solucionar </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'>Anular </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=1'>Pendiente </a><br>"
-        ?>
-         
+        <br>Modificar estado a: <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> Solucionar </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'>Anular </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=1'>Pendiente </a><br>
+        
+         </adresss>
          <br>
          <a href='listadosolicitudes.php'><span class='label label-primary'>Volver </span></a> 
+         <adress>
         <br><strong>Imagen del Problema:</strong><br> <!--Mostrar imagen o mensaje -->
 <!--Mostrar el siguiente mensaje si existe o no una Fotografía -->
     <?php if(file_exists($idassoc['url_fotografia'])){

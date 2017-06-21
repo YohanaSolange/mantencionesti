@@ -5,7 +5,7 @@
    <section class="content-header">
       <h1>
          Registrar Mantenciones
-         <small>advanced tables</small>
+         <small>Completar Formulario</small>
       </h1>
       <ol class="breadcrumb">
          <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
@@ -15,7 +15,6 @@
    <section>
       <div class="box box-primary">
          <div class="box-header with-border">
-            <h3 class="box-title">Quick Example</h3>
          </div>
          <!-- /.box-header -->
          <!-- form start -->

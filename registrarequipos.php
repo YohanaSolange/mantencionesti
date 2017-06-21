@@ -16,7 +16,7 @@
     <section class="content-header">
       <h1>
         Registrar Equipos
-        <small>advanced tables</small>
+        <small>Completar Formulario</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
@@ -31,7 +31,6 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
