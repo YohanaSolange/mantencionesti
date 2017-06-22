@@ -22,13 +22,6 @@ include('conexion.php');
 if(isset($_GET['enviado'])){
 //echo "RECIBIDO";
 
-
-
-
-
-
-
-
 $comentario= $_POST['comentario'];
 $nombre= $_POST['nombre'];
 $id_tipo_solicitud= $_POST['id_tipo_solicitud'];

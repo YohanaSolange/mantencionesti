@@ -82,6 +82,8 @@
               $nombre_admin = $fila['nombre'];
               $idtipo=$fila['id_tipo_mantencion'];
               $glosa_tipo_mantencion=$fila['glosa_tipo_mantencion'];
+              $id_tipo_mantencion=$fila['id_tipo_mantencion'];
+              $glosa_tipo_mantencion=$fila['glosa_tipo_mantencion'];
               echo "<tr>";
               echo "<td>$id_mantenciones</td>";
               echo "<td> $IP_mantenciones</td>";
@@ -91,7 +93,8 @@
               echo "<td> $pendientes_mantenciones</td>";
               echo "<td> $nombre_usuario</td>";
               echo "<td> $nombre_admin</td>";
-echo"<td><a href='editarmantenciones.php?idmantenciones=$id_mantenciones' class='btn btn-info role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
+              echo "<td> <option value='$id_tipo_mantencion'>$glosa_tipo_mantencion</option></td>";
+echo"<td><a href='editarmantencion.php?idmantenciones=$id_mantenciones' class='btn btn-info role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
 </td>";
               echo "</tr>";
               }

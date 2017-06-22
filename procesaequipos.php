@@ -15,8 +15,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Listado de Usuarios
-        <small>advanced tables</small>
+        Registro de Equipos
+        <small>Proceso del Registro</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
@@ -49,7 +49,7 @@ $conexion->conectar();
     //guardas la QUERY en una variable tipo stringi
 $strConsulta = "INSERT INTO `equipos` ( `IPequipo`, `mac`, `modelo`, `so`, `ram`,`procesador`, `memoriahdd`, `descripcion`,`id_usuario`, `nombreequipo`,`id_tipo_equipo`,`numero_de_serie`) VALUES ( '$IP', '$mac', '$modelo', '$so', '$ram', '$procesador', '$memoriahdd', '$programas', '$idusuarios', '$nombreequipo','$id_tipo_equipo','$numero_serie')";
 
-echo $strConsulta;
+//echo $strConsulta;
     
 
     //Imprimir la query para ver si esta correcta

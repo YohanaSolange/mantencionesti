@@ -29,7 +29,6 @@
     <thead>
   <tr>
     <th>ID</th>
-     <th>EQUIPO</th>
     <th>IP</th> 
     <th>MAC</th>
     <th>MODELO</th>
@@ -37,8 +36,10 @@
     <th>RAM</th>
     <th>PROCESADOR</th>
     <th>MEMORIA</th>
-    <th>PROGRAMAS</th>
-    <th>NOMBRE</th> 
+    <!--<th>PROGRAMAS</th>-->
+    <!-- <th>NOMBRE</th>--> 
+    
+    <th>EQUIPO</th>
     <th>ESTADO</th>
     <th>EDITAR</th>
         <th>HISTORIAL</th>
@@ -64,7 +65,7 @@
               $ram_equipo= $fila['ram'];
               $procesador_equipo= $fila['procesador'];
               $memoriahdd_equipo= $fila['memoriahdd'];
-              $descripcion= $fila['descripcion'];
+              //$descripcion= $fila['descripcion'];
               $id_usuario= $fila['nombre']; 
               $nombre_equipo= $fila['nombreequipo'];
               $estado_equipo= $fila['estado'];
@@ -72,7 +73,7 @@
                 //<option value='0'>Sin Cliente</option>
             echo "<tr>";
               echo "<td>$id_equipo</td>";
-              echo "<td>$nombre_equipo</td>";
+              //echo "<td>$nombre_equipo</td>";
               echo "<td>$ip_equipo</td>";
               echo "<td>$mac_equipo</td>";
               echo "<td>$modelo_equipo</td>";
@@ -80,7 +81,7 @@
               echo "<td>$ram_equipo</td>";
               echo "<td>$procesador_equipo</td>";
               echo "<td>$memoriahdd_equipo</td>";
-              echo "<td>$descripcion</td>";
+              //echo "<td>$descripcion</td>";
               echo "<td>$id_usuario</td>";
 
          
@@ -88,16 +89,16 @@
                    if ($fila['estado']==1){
 
         
-          echo "<td><span class='label label-success'>ACTIVO</span></td>";
+          echo "<td><span class='label label-success'>HABILITADO</span></td>";
         } else {
           echo "<td><span class='label label-danger'>DESHABILITADO</span></td>";
         }
 
 
-echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-warning' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
+echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-info' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
 </td>";
 
-echo"<td><a href='detallesequipos.php?id_equipo=$id_equipo' class='btn btn-success' role='button' ><span class='ionicon ion-clipboard' aria-hidden='true'> Historial</button>
+echo"<td><a href='detallesequipos.php?id_equipo=$id_equipo' class='btn btn-primary' role='button' ><span class='ionicon ion-clipboard' aria-hidden='true'> Historial</button>
 </td></tr>";
               }
              ?>

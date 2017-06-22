@@ -10,16 +10,21 @@
       <ol class="breadcrumb">
          <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
          <li><a href="listadousuarios.php">Listado Usuarios</a></li>
+      
       </ol>
    </section>
-   <section>
-      <div class="box box-primary">
-         <div class="box-header with-border">
-         </div>
-         <!-- /.box-header -->
-         <!-- form start -->
-         <form role="form" action='procesamantenciones.php' method="POST">
+
+<!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+            </div>
+            <!-- /.box-header -->
             <div class="box-body">
+         <form role="form" action='procesamantenciones.php' method="POST">
+           
                <div class="form-group">
                   <label for="exampleInputEmail1">Ip</label>
                   <input type="text" class="form-control"  id="IP" name="IP" placeholder="Ingrese IP" required/>
@@ -110,7 +115,7 @@
                </div>
 
 
-                         <div class="form-group">
+                  <div class="form-group">
                   <label for="exampleInputEmail1">Monto CLP</label>
                   <input type="text" class="form-control"  id="monto" name="monto" value='0' pattern="[0-9]+" required>
                </div>
@@ -122,12 +127,14 @@
                </div>
                <div class="form-group">
                   <label for="exampleInputEmail1">Seleccione si quedan Mantenciones Pendientes:</label><br>
-                  <input name="pendientes" id="pendientes" value="No" type="radio" checked="" > 
+                  <input name="pendientes" id="pendientes" value="2" type="radio" checked="" > 
                   No </label><br>
                   <label class="radio-inline" for="pendientes">
-                  <input name="pendientes" id="pendientes" value="Si" type="radio"> 
+                  <input name="pendientes" id="pendientes" value="1" type="radio"> 
                   Si</label><br>
                </div>
+
+
                <div class="form-group">
                   <label for="exampleInputEmail1">Seleccione el tipo de Mantencion:</label>
                   <?php 
@@ -153,19 +160,29 @@
                <!-- /.box-body -->
                <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Guardar Mantencion</button>
-   
-     </form>
-     </div>
-     </section>
-</div>
+               </div>
+               </form>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
 
 
-
-   <!-- /.col -->
-
-<!-- /.col -->
-<!-- Main content -->
-<!-- /.content -->
 <!-- CAJA DE CONTENIDO CONDENIDO -->
+ 
+
+
 <!-- HASTA AQUI CONTENIDO -->
-<?php include('footer.php');?>
+
+ <?php include('footer.php');?>
