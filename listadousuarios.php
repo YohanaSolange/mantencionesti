@@ -63,7 +63,7 @@
 
              
              
-echo"<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-warning' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
+echo"<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-primary' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</span></a>
 </td>";
 
              } ?>

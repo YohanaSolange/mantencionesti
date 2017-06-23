@@ -51,7 +51,7 @@ if (!$resultado1) {
     die("<div class='alert alert-danger'><strong>No se pudo registrar, error:</strong></div> " . mysql_error());
 }else{
     //no hay errores asi que ejecuta todo esto: 
-    echo "<div class='alert alert-success'><strong>Registro de Equipo Correcto</strong><a href='listadomantenciones.php' class='button'>Volver</a></div>";
+    echo "<div class='alert alert-success'><strong>Registro de Equipo Correcto</strong>";
 }
 ?>
 

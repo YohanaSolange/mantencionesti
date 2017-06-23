@@ -34,8 +34,9 @@
     <th>EMAIL DEL SOLICITANTE</th>
     <TH>TIPO DE SOLICITUD</TH>
     <TH>TIPO DE EQUIPO</TH>
-    <TH>VER DETALLES</TH>
-    <th>ESTADO</th></tr>
+     <th>ESTADO</th>
+     <TH>VER DETALLES</TH>
+   </tr>
     </thead>
   <tbody>
 
@@ -75,7 +76,7 @@
           echo "<td><span class='label label-danger'>ANULADO</span></td>";
         }
 
-            echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud'>Detalle</a></td>";
+            echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud' class='btn btn-info role='button' ><span class='ion-clipboard' aria-hidden='true'>Detalle</a></span></td>";
               
              
 

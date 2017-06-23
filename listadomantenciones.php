@@ -38,15 +38,17 @@
   <tr>
     <th>ID</th>
     <th>IP</th> 
-    <th>DETALLES</th>
-    <th>CORRECCIONES</th>
+<!-- <th>DETALLES</th>-->
+<!-- <th>CORRECCIONES</th>-->
     <th>FECHA</th>
-    <th>PENDIENTES</th>
     <th>NOMBRE_EQUIPO</th>
     <th>REGISTRADOR</th>
     <th>TIPO</th>
+    <th>PENDIENTES</th>
+    <th>ESTADO</th>
     <th>EDITAR</th>
-    <!--<th>ESTADO</th> -->
+    <th>DETALLE</th>
+    
   </tr>
   </thead>
   <tbody>
@@ -72,10 +74,10 @@
               {
               //variable asociativa FILA
               $fila = mysql_fetch_array($buscarMantencionesresultados);
-              $id_mantenciones= $fila['id_mantencion'];
+              $id_mantencion= $fila['id_mantencion'];
               $IP_mantenciones= $fila['IPmantencion'];
               $fallas_mantenciones= $fila['falla'];
-              $correcciones_mantenciones= $fila['correcciones'];
+              //$correcciones_mantenciones= $fila['correcciones'];
               $fecha_mantenciones= $fila['fecha'];
               $pendientes_mantenciones= $fila['pendiente'];
               $nombre_usuario = $fila['nombreequipo'];
@@ -84,18 +86,38 @@
               $glosa_tipo_mantencion=$fila['glosa_tipo_mantencion'];
               $id_tipo_mantencion=$fila['id_tipo_mantencion'];
               $glosa_tipo_mantencion=$fila['glosa_tipo_mantencion'];
-              echo "<tr>";
-              echo "<td>$id_mantenciones</td>";
-              echo "<td> $IP_mantenciones</td>";
-              echo "<td> $fallas_mantenciones</td>";
-              echo "<td> $correcciones_mantenciones</td>";
-              echo "<td> $fecha_mantenciones</td>";
-              echo "<td> $pendientes_mantenciones</td>";
-              echo "<td> $nombre_usuario</td>";
-              echo "<td> $nombre_admin</td>";
-              echo "<td> <option value='$id_tipo_mantencion'>$glosa_tipo_mantencion</option></td>";
-echo"<td><a href='editarmantencion.php?idmantenciones=$id_mantenciones' class='btn btn-info role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
+              $estado=$fila['estado'];
+            echo "<tr>";
+            echo "<td>$id_mantencion</td>";
+            echo "<td> $IP_mantenciones</td>";
+            //echo "<td> $fallas_mantenciones</td>";
+           // echo "<td> $correcciones_mantenciones</td>";
+            echo "<td> $fecha_mantenciones</td>";
+            echo "<td> $nombre_usuario</td>";
+            echo "<td> $nombre_admin</td>";
+            echo "<td> <option value='$id_tipo_mantencion'>$glosa_tipo_mantencion</option></td>";
+
+
+              if ($pendientes_mantenciones==1){
+              echo "<td><option value='1'>SI</option></td>";
+            }else{
+              echo "<td><option value='2'>NO</option></td>";
+            }
+
+
+
+
+             if ($fila['estado']==1){
+        
+          echo "<td><span class='label label-success'>ACTIVO</span></td>";
+        } else {
+          echo "<td><span class='label label-danger'>DESHABILITADO</span></td>";
+        }
+
+
+echo"<td><a href='editarmantencion.php?id_mantencion=$id_mantencion' class='btn btn-primary role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</span></a>
 </td>";
+echo"<td><a href='detalle_id_mantencion.php?id_mantencion=$id_mantencion%estado=$estado' class='btn btn-info role='button' ><span class='ion-clipboard' aria-hidden='true'>Detalle</span></a></td>";
               echo "</tr>";
               }
 }

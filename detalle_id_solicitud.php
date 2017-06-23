@@ -13,21 +13,18 @@
 $id_solicitud = $_GET['id'];
 //consulto si estado esta seteado, si viene la variable desde otro lado
 if(isset($_GET['estado'])){
-  //la variable estado tendra el numero
+//la variable estado tendra el numero
 $estado = $_GET['estado'];
 
 
- $con4 = new DB;
-     $con4->conectar();
+    $con4 = new DB;
+    $con4->conectar();
 $strConsultaSolicitud ="UPDATE `solicitudes` SET `estado` = '$estado' WHERE `solicitudes`.`id_solicitud` = '$id_solicitud';";//actualizar estado a 2=SOLUCIONADO
 $respuestaEstado=mysql_query($strConsultaSolicitud);
 
 }
 
 ?>
-
-
-
 
 <div class="content-wrapper">
 
