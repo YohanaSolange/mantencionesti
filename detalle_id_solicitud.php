@@ -107,11 +107,19 @@ if (isset($_GET['id'])){
         <?php echo $idassoc['comentario'];?></h4></strong><br>
 				
 
-        <br>Modificar estado a: <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> Solucionar </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'>Anular </a>- o <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=1'>Pendiente </a><br>
+        <br>Modificar estado a:
+
+        <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> 
+        Solucionar </a>
+        - o 
+        <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'>
+        Anular </a>- o 
+        <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=1'>
+        Pendiente </a><br>
         
          </adresss>
          <br>
-         <a href='listadosolicitudes.php'><span class='label label-primary'>Volver </span></a> 
+       <a href="listadosolicitudes.php" class="btn btn-primary" role="button"><span class='ion-reply' aria-hidden='true'>Volver</span></a>
          <adress>
         <br><strong>Imagen del Problema:</strong><br> <!--Mostrar imagen o mensaje -->
 <!--Mostrar el siguiente mensaje si existe o no una Fotografía -->

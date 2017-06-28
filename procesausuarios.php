@@ -2,15 +2,6 @@
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
 
-
-
-
-
-
-
-
-
-
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -60,14 +51,10 @@ if (!$resultado1) {
 
 </div>
 
-
-  </div>
-
+</div>
 
 <!-- CAJA DE CONTENIDO CONDENIDO -->
  
-
-
 <!-- HASTA AQUI CONTENIDO -->
 
  <?php include('footer.php');?>

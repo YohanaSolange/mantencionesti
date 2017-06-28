@@ -58,12 +58,12 @@
         
           echo "<td><span class='label label-success'>ACTIVO</span></td>";
         } else {
-          echo "<td><span class='label label-danger'>DESHABILITADO</span></td>";
+          echo "<td><span class='label label-danger'>INACTIVO</span></td>";
         }
 
              
              
-echo"<td><a href='editarusuarios.php?idusuario=$id_usuarios' class='btn btn-primary' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</span></a>
+echo"<td><a href='editarusuarios.php?id_usuario=$id_usuarios' class='btn btn-primary' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</span></a>
 </td>";
 
              } ?>

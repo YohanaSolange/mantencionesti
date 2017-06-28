@@ -195,8 +195,8 @@ if (!$resultado1) {
         <!-- /.col -->
         <div class="social-auth-links text-center">
           <button type="submit" class="btn btn-success btn-block btn-flat">Solicitar Mantencion</button>
-
-
+<br>
+<a href="index.php" class="btn btn-primary" role="button"><span class='ion-reply' aria-hidden='true'>Volver </span></a>
 
         </div>
         <!-- /.col -->

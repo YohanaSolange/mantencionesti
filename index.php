@@ -42,7 +42,7 @@ include('header.php');
 
     <div class="social-auth-links text-center">
       <p></p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-check"></i> Solicite una Mantencion</a>
+      <a href="solicitudmantencion.php" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-check"></i> Solicite una Mantencion</a>
 
       <!--
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using

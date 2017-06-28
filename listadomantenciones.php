@@ -46,7 +46,6 @@
     <th>TIPO</th>
     <th>PENDIENTES</th>
     <th>ESTADO</th>
-    <th>EDITAR</th>
     <th>DETALLE</th>
     
   </tr>
@@ -55,7 +54,7 @@
               <?php 
                include_once("conexion.php");
             $con2 = new DB;
-            $strConsultaMantenciones = "SELECT * FROM `mantenciones` left join equipos on mantenciones.id_equipo = equipos.id_equipo left join administradores on mantenciones.id_administrador = administradores.id_administrador left join tipo_mantenciones on tipo_mantenciones.id_tipo_mantencion=mantenciones.id_tipo_mantencion ";
+            $strConsultaMantenciones = "SELECT *,mantenciones.estado as mantenciones_estado   FROM `mantenciones` left join equipos on mantenciones.id_equipo = equipos.id_equipo left join administradores on mantenciones.id_administrador = administradores.id_administrador left join tipo_mantenciones on tipo_mantenciones.id_tipo_mantencion=mantenciones.id_tipo_mantencion ";
 
             //echo $strconsultaMantenciones
 
@@ -98,26 +97,24 @@
             echo "<td> <option value='$id_tipo_mantencion'>$glosa_tipo_mantencion</option></td>";
 
 
-              if ($pendientes_mantenciones==1){
-              echo "<td><option value='1'>SI</option></td>";
-            }else{
-              echo "<td><option value='2'>NO</option></td>";
-            }
-
-
-
-
-             if ($fila['estado']==1){
-        
-          echo "<td><span class='label label-success'>ACTIVO</span></td>";
-        } else {
-          echo "<td><span class='label label-danger'>DESHABILITADO</span></td>";
+        if ($pendientes_mantenciones==1){
+        echo "<td><option value='1'>SI</option></td>";
+        }else{
+        echo "<td><option value='2'>NO</option></td>";
         }
 
 
-echo"<td><a href='editarmantencion.php?id_mantencion=$id_mantencion' class='btn btn-primary role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</span></a>
-</td>";
-echo"<td><a href='detalle_id_mantencion.php?id_mantencion=$id_mantencion%estado=$estado' class='btn btn-info role='button' ><span class='ion-clipboard' aria-hidden='true'>Detalle</span></a></td>";
+
+
+        if ($fila['mantenciones_estado']==1){
+          echo "<td><span class='label label-success'>ACTIVO</span></td>";
+        } else {
+          echo "<td><span class='label label-danger'>INACTIVO</span></td>";
+        }
+
+
+
+echo"<td><a href='detalle_id_mantencion.php?id_mantencion=$id_mantencion' class='btn btn-info role='button' ><span class='ion-clipboard' aria-hidden='true'>Detalle</span></a></td>";
               echo "</tr>";
               }
 }

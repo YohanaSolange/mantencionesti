@@ -10,7 +10,7 @@ $id_equipo = $_GET['id_equipo'];
 
   include_once("conexion.php");
               $con2 = new DB;
-              $strConsultaEquipos = "SELECT * FROM `equipos` inner join usuarios on equipos.id_usuario = usuarios.id_usuario inner join tipo_equipo on equipos.id_tipo_equipo = tipo_equipo.id_tipo_equipo where equipos.id_equipo = $id_equipo";
+              $strConsultaEquipos = "SELECT *, equipos.estado as equipo_estado  FROM `equipos` inner join usuarios on equipos.id_usuario = usuarios.id_usuario inner join tipo_equipo on equipos.id_tipo_equipo = tipo_equipo.id_tipo_equipo where equipos.id_equipo = $id_equipo";
 
               //echo $strConsultaEquipos;
 
@@ -27,7 +27,7 @@ $id_equipo = $_GET['id_equipo'];
 
 
             $con2 = new DB;
-            $strConsultaMantenciones = "SELECT * FROM `mantenciones` left join equipos on mantenciones.id_equipo = equipos.id_equipo left join administradores on mantenciones.id_administrador = administradores.id_administrador left join tipo_mantenciones on tipo_mantenciones.id_tipo_mantencion=mantenciones.id_tipo_mantencion where mantenciones.id_equipo = $id_equipo order by mantenciones.id_mantencion asc ";
+            $strConsultaMantenciones = "SELECT *, mantenciones.estado as mantenciones_estado FROM `mantenciones` left join equipos on mantenciones.id_equipo = equipos.id_equipo left join administradores on mantenciones.id_administrador = administradores.id_administrador left join tipo_mantenciones on tipo_mantenciones.id_tipo_mantencion=mantenciones.id_tipo_mantencion where mantenciones.id_equipo = $id_equipo order by mantenciones.id_mantencion asc ";
 
             //echo $strconsultaMantenciones
 
@@ -40,7 +40,9 @@ $id_equipo = $_GET['id_equipo'];
               {
                 $fila2 = mysql_fetch_array($buscarMantencionesresultados2);
                 $monto_total_mantenciones = $monto_total_mantenciones +    $nombre_admin = $fila2['monto'];
-              }
+                $fecha=$fila2['fecha'];
+            } 
+
 ?>
 
 
@@ -54,7 +56,7 @@ $id_equipo = $_GET['id_equipo'];
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
-        <li><a href="listadoequipos.php">Listado Equipo</a></li>
+        <li><a href="listadoequipos.php">Listado Equipos</a></li>
        
       </ol>
     </section>
@@ -66,8 +68,8 @@ $id_equipo = $_GET['id_equipo'];
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> <?php echo $nombre_equipo?>
-            <small class="pull-right">Date: 2/10/2014</small>
+            <i class="fa fa-users"></i> Nombre del Equipo: <?php echo $dataset_equipo['nombreequipo'];?>
+            <small class="pull-right">Fecha:</small>
           </h2>
         </div>
         <!-- /.col -->
@@ -150,12 +152,12 @@ $id_equipo = $_GET['id_equipo'];
           <div class="col-sm-3 invoice-col">
          
           <address>
-            <strong>Estado:</strong><br>
+            <strong>Estado del equipo:</strong><br>
 
-                <?php if ($dataset_equipo['estado'] == 1) {
-                  echo "<span class='badge bg-green'>HABILITADO</span>";
+                <?php if ($dataset_equipo['equipo_estado'] == 1) {
+                  echo "<span class='badge bg-green'>ACTIVO</span>";
                 }else{
-                  echo "<span class='badge bg-warning'>HABILITADO</span>";
+                  echo "<span class='badge bg-warning'>INACTIVO</span>";
 
                   }?><br>
 
@@ -192,7 +194,7 @@ $id_equipo = $_GET['id_equipo'];
  
     <th>REGISTRADOR</th>
      <th class="no-print">TIPO DE MANTENCION</th>
-        <th>Monto</th>
+        <th>MONTO</th>
     <!--<th>ESTADO</th> -->
   </tr>
   </thead>
@@ -227,7 +229,7 @@ $id_equipo = $_GET['id_equipo'];
               $monto = $fila['monto'];
 
               echo "<tr>";
-              echo "<td>$id_mantenciones</td>";
+              echo "<td> $id_mantenciones</td>";
               echo "<td> $IP_mantenciones</td>";
               echo "<td> $fallas_mantenciones</td>";
               echo "<td> $correcciones_mantenciones</td>";

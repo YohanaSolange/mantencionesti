@@ -34,7 +34,7 @@
     <th>EMAIL DEL SOLICITANTE</th>
     <TH>TIPO DE SOLICITUD</TH>
     <TH>TIPO DE EQUIPO</TH>
-     <th>ESTADO</th>
+     <th>ESTADO </th>
      <TH>VER DETALLES</TH>
    </tr>
     </thead>

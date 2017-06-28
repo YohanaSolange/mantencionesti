@@ -49,7 +49,7 @@
             <?php 
             include_once("conexion.php");
             $con= new DB;
-            $strConsulta = "SELECT * FROM `equipos` inner JOIN usuarios on equipos.id_usuario=usuarios.id_usuario";
+            $strConsulta = "SELECT *,equipos.estado as estado_equipo  FROM `equipos` inner JOIN usuarios on equipos.id_usuario=usuarios.id_usuario";
             $con->conectar();
             $buscarComputadoresresultados = mysql_query($strConsulta);
             $numregistrosComputadores= mysql_num_rows($buscarComputadoresresultados);
@@ -86,16 +86,16 @@
 
          
 
-                   if ($fila['estado']==1){
+                   if ($fila['estado_equipo']==1){
 
         
-          echo "<td><span class='label label-success'>HABILITADO</span></td>";
+          echo "<td><span class='label label-success'>ACTIVO</span></td>";
         } else {
-          echo "<td><span class='label label-danger'>DESHABILITADO</span></td>";
+          echo "<td><span class='label label-danger'>INACTIVO</span></td>";
         }
 
 
-echo"<td><a href='editarcomputadores.php?idcomputadores=$id_equipo' class='btn btn-info' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
+echo"<td><a href='editarequipos.php?id_equipo=$id_equipo' class='btn btn-info' role='button' ><span class='ionicon ion-compose' aria-hidden='true'> Editar</button>
 </td>";
 
 echo"<td><a href='detallesequipos.php?id_equipo=$id_equipo' class='btn btn-primary' role='button' ><span class='ionicon ion-clipboard' aria-hidden='true'> Historial</button>

@@ -49,8 +49,9 @@
                      $nombre_equipo = $fila['nombreequipo'];
                      echo "<option value='$id_equipos'>$nombre_equipo</option>";
                      }
+                     echo "  </select>";
                      ?>
-                  </select>
+                
                </div>
                <div class="form-group">
                   <label for="exampleInputEmail1">Tipo Equipo</label>

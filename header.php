@@ -211,4 +211,64 @@
 
 
 
+<?php 
 
+
+function select_listado_tipo_equipo(){
+
+                     include_once("conexion.php");
+                     
+                     $conequipos = new DB;
+                     $strConsultaComputadores = "select * from tipo_equipo";
+                     $conequipos->conectar();
+                     $buscarComputadoresresultados = mysql_query($strConsultaComputadores);
+                     $numregistrosComputadores= mysql_num_rows($buscarComputadoresresultados);
+                  
+
+
+                  echo "<select class='form-control' id='id_tipo_equipo' name='id_tipo_equipo'>";
+             
+                   for ($i=0; $i<$numregistrosComputadores; $i++)
+                     {
+                     $fila = mysql_fetch_array($buscarComputadoresresultados);
+                     $idtipo_equipo = $fila['id_tipo_equipo'];
+                     $equipo_nombre = $fila['glosa_tipo_equipo'];
+                     echo "<option value='$idtipo_equipo'>$equipo_nombre</option>";
+                     }
+                     echo "  </select>";
+          
+return null;
+}
+
+
+
+
+
+
+function select_listado_usuarios(){
+
+                     include_once("conexion.php");
+                     
+                     $conusuarios = new DB;
+                     $strConsultaUsuarios = "select * from usuarios";
+                     $conusuarios->conectar();
+                     $buscarUsuariosresultados = mysql_query($strConsultaUsuarios);
+                     $numregistrosUsuarios= mysql_num_rows($buscarUsuariosresultados);
+                  
+
+
+                  echo "<select class='form-control' id='id_usuario' name='id_usuario'>";
+             
+                   for ($i=0; $i<$numregistrosUsuarios; $i++)
+                     {
+                     $fila = mysql_fetch_array($buscarUsuariosresultados);
+                     $id_usuario = $fila['id_usuario'];
+                     $nombre = $fila['nombre'];
+                     echo "<option value='$id_usuario'>$nombre</option>";
+                     }
+                     echo "  </select>";
+          
+return null;
+}
+
+?>

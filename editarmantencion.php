@@ -27,12 +27,10 @@
 
 <?php 
 
-$id_mantencion = $_GET['id_mantencion'];
-$estado=$_GET['estado'];
 
 
 if (isset($_GET['id_mantencion'])){
-        
+$id_mantencion = $_GET['id_mantencion'];       
 $con3 = new DB;
 $strConsulta = "SELECT * FROM `mantenciones` where mantenciones.id_mantencion = '$id_mantencion' ";
     $con3->conectar();
@@ -41,79 +39,83 @@ $strConsulta = "SELECT * FROM `mantenciones` where mantenciones.id_mantencion = 
     //variable asociativa FILA
     $idassoc = mysql_fetch_assoc($buscarresultados);
    }
-
 ?>
 
-
+<form action="editarmantencion.php?procesa=1&id_mantencion=<?php echo $id_mantencion?>" method="post">
 <th>
 
 <tr>
 <td><strong>IP</strong> de la Mantención:</td>
-<td><input type="text" name="" id="" value='<?php echo $idassoc['IPmantencion'];?>'>
+<td><input type="text" name="IPmantencion" id="IPmantencion" value='<?php echo $idassoc['IPmantencion'];?>'>
 </td></tr><br>
 
 <tr>
 <td>Descripción de la <strong>Falla:</strong></td>
-<td><input type="text" name="" id="" value='<?php echo $idassoc['falla'];?>' >
+<td><input type="text" name="falla" id="falla" value='<?php echo $idassoc['falla'];?>' >
 </td></stron></tr><br>
 
 <tr>
 <td><strong>Correcciones</strong> realizadas:</td>
-<td><input type="text" name="" id="" value='<?php echo $idassoc['correcciones'];?>' >
+<td><input type="text" name="correcciones" id="correcciones" value='<?php echo $idassoc['correcciones'];?>' >
 </td></tr><br>
 
 <tr>
 <td><strong>Pendientes</strong> a realizar:</td>
-<td><input type="text" name="" id="" value='<?php echo $idassoc['pendiente'];?>' >
+<td><select name="pendiente" id="pendiente" value='<?php echo $idassoc['pendiente'];?>' >
+
+  <option value="1" name="pendiente" id="pendiente">Si</option>
+  <option value="2" name="pendiente" id="pendiente">No</option>
+   </select>
 </td></tr><br>
 
 <tr>
-<td><strong>Estado</strong> del Equipo:</td>
-<td><input type="text" name="" id="" value='<?php echo $idassoc['estado'];?>'>
+<td><strong>Estado</strong> de la Mantención:</td>
+<td><select name="estado" id="estado" value='<?php echo $idassoc['estado'];?>'>
+ 
+  <option value="1" name="estado" id="estado">Activa</option>
+  <option value="2" name="estado" id="estado">Inactiva</option>
+</select>
 </td></tr><br>
+
 
 <tr>
 <td><strong>Costo</strong> de Mantención:</td>
-<td><input type="text" name="" id="" value='<?php echo $idassoc['monto'];?>'>
+<td><input type="text" name="monto" id="monto" value='<?php echo $idassoc['monto'];?>'>
 </td></tr><br>
 
 
 
 <tr>
-<td><button type="submit" class="btn btn-success" role="button"><span class='ion-android-done-all' aria-hidden='true'>Aceptar</span></a></td></tr>
+<td><button type="submit" class="btn btn-success" role="button"><span class='ion-android-done-all' aria-hidden='true'>Aceptar</span></button></td></tr>
+<td><a href="listadomantenciones.php" class="btn btn-primary" role="button"><span class='ion-reply' aria-hidden='true'>Volver al Listado</span></a></td></tr>
 
 </th>
+</form>
 
-<?php
-$con = new DB;
-   $con->conectar();
-if(isset($_GET['id_mantencion'])){
-  //la variable estado tendra el numero
-$id_mantencion = $_GET['id_mantencion'];
-$id_estado=$_GET['estado'];
+<?php 
+ $con4 = new DB;
+ $con4->conectar();
+ 
+if (isset($_GET['procesa'])){
+  
+include_once("conexion.php");
+$id_mantencion=$_GET['id_mantencion'];
 
-$IP = $_POST['IP'];
-$fallas = $_POST['fallas'];
-$correcciones = $_POST['correcciones'];
-$pendientes= $_POST['pendientes'];
-$monto = $_POST['monto'];
+$IPmantencion=$_POST['IPmantencion'];
+$falla=$_POST['falla'];
+$correcciones=$_POST['correcciones'];
+$pendiente=$_POST['pendiente'];
+$estado=$_POST['estado'];
+$monto=$_POST['monto'];
 
-$ConsultaUpdate ="UPDATE `mantenciones` SET `IPmantencion` = '$IP'  , `falla` = '$fallas', `correcciones` = '$correccione', `pendiente` = '$pendientes', `estado` = '$estado', `monto` = '$monto'WHERE `mantenciones`.`id_mantencion` = '$id_mantencion';";
+$strConsulta1="UPDATE `mantenciones`  SET `IPmantencion` = '$IPmantencion', `falla` = '$falla', `correcciones` = '$correcciones', `pendiente` = '$pendiente', `estado` = '$estado', `monto` = '$monto' WHERE `mantenciones`.`id_mantencion` = '$id_mantencion' ";
+  $mostrarconsulta1=mysql_query($strConsulta1);
 
-$consulta=mysql_query($ConsultaUpdate);    
 
-if(isset($consulta)){
-  if ($consulta){
-  die("<div class='alert alert-danger alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button> <h4><i class='icon fa fa-check'></i> Error!</h4> No se pudo modificar el <strong>Estado</strong> de la solicitud.".mysql_error()."
-              </div>");
-  }else{
-    echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button> <h4><i class='icon fa fa-check'></i> Ok!</h4> Se ha modificado correctamente el <strong>Estado</strong> de la solicitud.
-              </div>";
-  }
+          
 }
-}
+
 ?>
-
   
      </tbody>
       </table>
