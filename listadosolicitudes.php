@@ -75,11 +75,9 @@
         } else {
           echo "<td><span class='label label-danger'>ANULADO</span></td>";
         }
-
-            echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud' class='btn btn-info role='button' ><span class='ion-clipboard' aria-hidden='true'>Detalle</a></span></td>";
-              
              
 
+echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud' class='btn btn-info role='button' ><span class='ion-clipboard' aria-hidden='true'>Detalle</span></a></td>";
 
               echo "</tr>";
 

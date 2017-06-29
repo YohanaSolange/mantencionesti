@@ -44,7 +44,7 @@ $strConsulta = "SELECT * FROM `equipos` inner join usuarios on usuarios.id_usuar
 
 <tr>
 <td><strong>IP</strong> de la Mantención:</td>
-<td><input type="text" name="IPequipo" id="IPequipo" value='<?php echo $idassoc['IPequipo'];?>'>
+<td><input type="text" name="IP" id="IP" value='<?php echo $idassoc['IP'];?>'>
 </td></tr><br>
 
 <tr>
@@ -144,7 +144,7 @@ if (isset($_GET['procesa'])){
 include_once("conexion.php");
 $id_mantencion=$_GET['id_equipo'];
 
-$IPequipo=$_POST['IPequipo'];
+$IPequipo=$_POST['IP'];
 $mac=$_POST['mac'];
 $modelo=$_POST['modelo'];
 $so=$_POST['so'];
@@ -161,6 +161,12 @@ $numero_de_serie=$_POST['numero_de_serie'];
 $strConsulta1=" UPDATE `equipos` SET `IPequipo` = '$IPequipo', `mac` = '$mac', `modelo` = '$modelo', `so` = '$so', `ram` = '$ram', `procesador` = '$procesador', `memoriahdd` = '$memoriahdd', `descripcion` = '$descripcion', `nombreequipo` = '$nombreequipo', `estado` = '$estado', `id_usuario` = '$id_usuario', `id_tipo_equipo` = '$id_tipo_equipo', `numero_de_serie` = '$numero_de_serie' WHERE `equipos`.`id_equipo` = '$id_equipo'";
   $mostrarconsulta1=mysql_query($strConsulta1);
 
+if (!$mostrarconsulta1) {
+    die("<div class='alert alert-danger'><strong>No se pudo registrar, error:</strong></div> " . mysql_error());
+}else{
+    //no hay errores asi que ejecuta todo esto: 
+    echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-info'></i> Se ha realizado los cambios correctamente.</h4>Equipo Modificado.</div>";
+}
 
           
 }

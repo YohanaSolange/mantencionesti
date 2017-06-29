@@ -56,8 +56,8 @@ $strConsulta = "SELECT * FROM `usuarios` where usuarios.id_usuario = '$id_usuari
 <td><strong>Estado del Usuario:</strong> </td>
 <td><select name="estado" id="estado" value='<?php echo $idassoc['estado'];?>'>
  
-  <option value="1" name="estado" id="estado">Activa</option>
-  <option value="2" name="estado" id="estado">Inactiva</option>
+  <option value="1" name="estado" id="estado">Activo</option>
+  <option value="2" name="estado" id="estado">Inactivo</option>
 </select>
 </td></tr><br>
 
@@ -83,6 +83,13 @@ $estado=$_POST['estado'];
 
 $strConsulta1="UPDATE `usuarios` SET `nombre` = '$nombre', `email` = '$email', `estado` = '$estado' WHERE `usuarios`.`id_usuario` = '$id_usuario' ";
   $mostrarconsulta1=mysql_query($strConsulta1);
+
+  if (!$mostrarconsulta1) {
+    die("<div class='alert alert-danger'><strong>No se pudo registrar, error:</strong></div> " . mysql_error());
+}else{
+    //no hay errores asi que ejecuta todo esto: 
+    echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-info'></i> Se ha realizado los cambios correctamente.</h4>Usuario Modificado.</div>";
+}
 
 }
 

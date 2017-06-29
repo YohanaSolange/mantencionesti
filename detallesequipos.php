@@ -254,6 +254,8 @@ $id_equipo = $_GET['id_equipo'];
       <!-- /.row -->
 
 
+<a href="listadoequipos.php" class="btn btn-primary" role="button"><span class='ion-reply' aria-hidden='true'>Volver </span></a>
+
 
       <div class="row">
       </div>

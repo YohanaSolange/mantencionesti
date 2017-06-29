@@ -1,26 +1,16 @@
+
 <?php include("header.php"); ?>
 <?php include ("navbar.php"); ?>
-
-
-
-
-
-
-
-
-
-
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Listado de Mantenciones
-        <small>Todas las mantenciones registradas</small>
+        Listado de mantenciones
+        <small>Todos las mantenciones registrados</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="menuprincipal.php"><i class="fa fa-dashboard"></i> Pagina Principal</a></li>
-        <li><a href="listadousuarios.php">Listado Usuarios</a></li>
-       
+        <li><a href="listadoequipos.php">Listado equipos</a></li>
       </ol>
     </section>
 
@@ -30,10 +20,12 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-            <!-- /.box-header -->
             </div>
+            <!-- /.box-header -->
             <div class="box-body">
-              <table class="display"  id="tabla1" cellspacing="0" width="100%">
+
+            
+              <table id="tabla1" class="table table-bordered table-hover">        
     <thead>
   <tr>
     <th>ID</th>
@@ -122,8 +114,9 @@ echo"<td><a href='detalle_id_mantencion.php?id_mantencion=$id_mantencion' class=
 
               
              ?>
-     </tbody>
+      </tbody>    
 </table>
+    
             </div>
             <!-- /.box-body -->
           </div>
@@ -147,6 +140,7 @@ echo"<td><a href='detalle_id_mantencion.php?id_mantencion=$id_mantencion' class=
 <!-- HASTA AQUI CONTENIDO -->
 
  <?php include('footer.php');?>
+
 
 
 

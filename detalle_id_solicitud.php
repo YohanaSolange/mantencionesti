@@ -73,23 +73,33 @@ if (isset($_GET['id'])){
         <div class="col-xs-12">
           <div class="box">
             <div class="box-body">
+        
+            <object  align="right"><strong>ID
+        <?php echo $idassoc['id_solicitud'];?></strong></object><br>
+
+        <object  align="right"> Fecha/hora de la solicitud:
+        <strong><?php echo $idassoc['fecha'];?></strong></object><br>
+        
+        <object  align="left">Nombre del solicitante:<br></i>
+        <i class="fa fa-users" aria-hidden="true"> <strong><?php echo $idassoc['nombre'];?></strong></li></object>
+        <br>
+
+
+
 				<adress>
-        <strong>ID:
-        <?php echo $idassoc['id_solicitud'];?></strong><br>
-				<strong>Nombre del solicitante:
-				<?php echo $idassoc['nombre'];?></strong><br><!-- Mostrar Nombre -->
-				
-        <br><strong>Fecha de la solicitud:</strong>
-				<?php echo $idassoc['fecha'];?><br>
+        <br>
+        <br>
 				<strong>Email del solicitante:</strong>
 				<?php echo $idassoc['email'];?><br>
 				<strong>Tipo de solicitud:</strong>
 				<?php echo $idassoc['glosa_tipo_solicitud'];?><br>
 				<strong>Tipo de equipo:</strong>
 				<?php echo $idassoc['glosa_tipo_equipo'];?><br><!-- Mostrar glosa tipo equipo -->
-			
+        <strong>Descripción del Problema:</strong>
+        <?php echo $idassoc['comentario'];?><br>
         <strong>Estado Actual de la Solicitud:</strong> <!-- Mostrar estado según :-->
         <?php
+
 
         if ($idassoc['estado_solicitud']=='1'){
        echo "<span class='label label-warning'>PENDIENTE</span><br>";//Mostrar el estado actual
@@ -103,21 +113,21 @@ if (isset($_GET['id'])){
         }
         ?>
         
-        <br><strong>Descripción del Problema:<h4>
-        <?php echo $idassoc['comentario'];?></h4></strong><br>
 				
 
-        <br>Modificar estado a:
-
-        <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=2'> 
-        Solucionar </a>
-        - o 
-        <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=3'>
-        Anular </a>- o 
-        <a href='detalle_id_solicitud.php?id=$id_solicitud&estado=1'>
-        Pendiente </a><br>
+    
+  
         
          </adresss>
+
+         <br>Modificar estado a:
+<a href='detalle_id_solicitud.php?id=$id_solicitud&estado_solicitud=2'> Solucionar </a>
+        - o 
+<a href='detalle_id_solicitud.php?id=$id_solicitud&estado_solicitud=3'> Anular </a>
+        - o 
+<a href='detalle_id_solicitud.php?id=$id_solicitud&estado_solicitud=1'> Pendiente </a>
+
+        <br>
          <br>
        <a href="listadosolicitudes.php" class="btn btn-primary" role="button"><span class='ion-reply' aria-hidden='true'>Volver</span></a>
          <adress>

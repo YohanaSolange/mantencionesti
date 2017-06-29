@@ -41,7 +41,7 @@ $strConsulta1="SELECT *,mantenciones.estado as mantenciones_estado  FROM `manten
 
     <!-- Main content -->
     <section class="content">
-                      <section class="invoice">
+    <section class="invoice">
       <!-- title row -->
       <div class="row">
         <div class="col-xs-12">

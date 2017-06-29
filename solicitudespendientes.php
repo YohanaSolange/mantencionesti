@@ -53,8 +53,8 @@ include ("navbar.php");
               echo "<tr>";
               echo"<td><option value='$id_tipo_solicitud'>$solicitud_glosa</option></td>";
               echo"<td><option value='$id_tipo_equipo'>$equipo_glosa</option></td>";
-              echo"<td>$fecha</td>";
-              echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud'>Detalle</a></td>";
+              echo"<td>$fecha</td>";;
+              echo"<td><a href='detalle_id_solicitud.php?id=$id_solicitud' class='btn btn-info role='button' ><span class='ion-clipboard' aria-hidden='true'>Detalle</span></a></td>";
               echo "</td>";
             }
 ?> 

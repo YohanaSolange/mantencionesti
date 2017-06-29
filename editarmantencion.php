@@ -27,8 +27,6 @@
 
 <?php 
 
-
-
 if (isset($_GET['id_mantencion'])){
 $id_mantencion = $_GET['id_mantencion'];       
 $con3 = new DB;
@@ -46,7 +44,7 @@ $strConsulta = "SELECT * FROM `mantenciones` where mantenciones.id_mantencion = 
 
 <tr>
 <td><strong>IP</strong> de la Mantención:</td>
-<td><input type="text" name="IPmantencion" id="IPmantencion" value='<?php echo $idassoc['IPmantencion'];?>'>
+<td><input type="text" name="IP" id="IP" value='<?php echo $idassoc['IP'];?>'>
 </td></tr><br>
 
 <tr>
@@ -101,7 +99,7 @@ if (isset($_GET['procesa'])){
 include_once("conexion.php");
 $id_mantencion=$_GET['id_mantencion'];
 
-$IPmantencion=$_POST['IPmantencion'];
+$IPmantencion=$_POST['IP'];
 $falla=$_POST['falla'];
 $correcciones=$_POST['correcciones'];
 $pendiente=$_POST['pendiente'];
@@ -111,6 +109,12 @@ $monto=$_POST['monto'];
 $strConsulta1="UPDATE `mantenciones`  SET `IPmantencion` = '$IPmantencion', `falla` = '$falla', `correcciones` = '$correcciones', `pendiente` = '$pendiente', `estado` = '$estado', `monto` = '$monto' WHERE `mantenciones`.`id_mantencion` = '$id_mantencion' ";
   $mostrarconsulta1=mysql_query($strConsulta1);
 
+  if (!$mostrarconsulta1) {
+    die("<div class='alert alert-danger'><strong>No se pudo registrar, error:</strong></div> " . mysql_error());
+}else{
+    //no hay errores asi que ejecuta todo esto: 
+    echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-info'></i> Se ha realizado los cambios correctamente.</h4>Mantención Modificada.</div>";
+}
 
           
 }
